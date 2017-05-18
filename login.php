@@ -32,7 +32,7 @@
                 <div class="box_login_inner">
                     <form method="post" action="access/access_verify_data.php">
                         <div class="box_user_image">
-                            <img src="img/default.png" id="img_default"/>
+                            <img src="admin/assets/img/default_user.png" id="img_default"/>
                         </div>
                         <div class="box_user_mail">
                             <img src="admin/icon/icon_user_login.png"><input class="input usuario" type="text" name="usuario" id="email" placeholder="E-mail" autocomplete="off" autofocus="true" required>
