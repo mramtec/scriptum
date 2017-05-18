@@ -1,0 +1,239 @@
+@CHARSET "UTF-8";
+
+.button{
+    transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+}
+
+.content_inner{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.postleft{
+    width: 60%;
+    padding: 0 1em;
+    float: left;
+}
+
+.postleft > div{
+    width: 100%;
+    margin: 1em 0;
+}
+
+.postleft_box{
+    padding: 0.5em 0;
+    position: relative;
+}
+
+.postleft input{
+    width: 100%;
+    padding: 0.4em;
+    font-size: 1.9em;
+    font-weight: 300;
+    color: #134374;
+    border: none;
+}
+
+.form_divisor{
+    width: 50%;
+    margin: 5em auto;
+    height: 1px;
+    border: none;
+    border-bottom: 1px #ddd solid;
+}
+
+.postright{
+    width: 40%;
+    float: right;
+    padding: 0 1em;
+}
+
+.postright_box_inner input{
+    width: 90%;
+    padding: 0.4em;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #134374;
+    border: none;
+}
+
+.postright_box_inner{
+    font-size: 1.9em;
+    color: #134374;
+    position: relative;
+}
+
+.box_inner_line, .box_inner_line2{
+    width: 100%;
+    height: 2px;
+    background: #2d6684;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.box_inner_line2{
+    width: 0%;
+    z-index: 10;
+    background: #134374;
+    box-shadow: 0 0 2px #134374
+}
+
+.categoria_box, .postagem_box{
+    width: 100%;
+    padding: 1em 0.5em;
+    border-left: 10px #134374 solid;
+}
+
+.categoria_inner, .postagem_inner{
+    width: 100%;
+    margin: 3em auto;
+    text-align: center;
+}
+
+.categoria_inner select, .postagem_inner select{
+    width: 80%;
+    font-size: 1.9em;
+    font-weight: 300;
+    padding: 1em 0.5em;
+    color: #134374;
+    border: 1px #ddd solid;
+}
+
+.categoria_inner select option, .postagem_inner select option{
+    font-weight: 300;
+    border: none;
+}
+
+.postbottom{
+    width: 100%;
+    margin: 5em auto;
+}
+
+.bottom_box{
+    float: left;
+    width: 50%;
+}
+
+.bottom_box_inner,
+.bottom_capa_inner{    
+    position: relative;
+    width: 85%;
+    height: 35em;
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    box-shadow: 6px 6px 25px #545454;
+    -moz-box-shadow: 6px 6px 25px #545454;
+    -webkit-box-shadow: 6px 6px 25px #545454;
+}
+
+.bottom_box_inner_title,
+.bottom_capa_inner_title{
+    top: 1em;
+    left: 1em;
+    position: absolute;
+    color: #fff;
+    z-index: 30;
+}
+
+.bottom_box_inner_title h2,
+.bottom_capa_inner_title h2{
+    font-size: 1.9em;
+    line-height: 1;
+}
+
+.bottom_box_inner_title h3,
+.bottom_capa_inner_title h3{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.bottom_box_inner_bg, .bottom_box_inner_color,
+.bottom_capa_inner_bg, .bottom_capa_inner_color{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bottom_box_inner_color,
+.bottom_capa_inner_color{
+    background: rgba(2, 43, 99, 0.5);
+    z-index: 20;
+}
+
+.bottom_box_inner_bg{
+    background: url(../img/miniatura.jpg) scroll center center no-repeat;
+    background-size: cover;
+}
+
+.bottom_capa_inner_bg{
+    background: url(../img/capa.jpg) scroll center center no-repeat;
+    background-size: cover;
+}
+
+.bottom_box_inner_actions,
+.bottom_capa_inner_actions{
+    width: 100%;
+    text-align: center;
+    z-index: 30;
+    position: relative;
+}
+
+.bottom_box_inner_actions i,
+.bottom_capa_inner_actions i{
+    color: #fff;
+    font-size: 4em;
+    margin: 0 0.5em;
+}
+
+.box_button_down{
+    width: 100%;
+    text-align: center;
+    margin: 9em 0;
+}
+
+.box_button_down button{
+    padding: 0.8em 3em;
+    font-size: 2em;
+    font-weight: 300;
+    color: #fff;
+    background: #134374;
+    border:none;
+    box-shadow: 0 2px 40px #545454;
+}
+
+@media screen and (max-width: 640px){
+    
+    .postleft, .postright{
+        padding: 0;
+        float: none;
+        width: 100%;
+    }
+    
+    .bottom_box{
+        float: none;
+        width: 100%;
+        margin: 3em auto;
+    }
+    
+    .bottom_box_inner,
+    .bottom_capa_inner{
+        height: 28em;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    
+    .content_inner{
+        width: 100%;
+    }
+    
+}

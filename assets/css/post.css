@@ -1,0 +1,199 @@
+.container{
+    width: 100%;
+    margin: 15em 0;
+}
+
+.post_header{
+    width: 100em;
+    max-width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 6em 1em;
+    position: relative;
+}
+
+.post_header_inner{
+    position: relative;
+    z-index: 10;
+    color: #fff;
+}
+
+.post_header h1{
+    font-size: 3em;
+    font-weight: 300;
+    text-shadow: 0 1px 2px #000;
+}
+
+.post_header_inner span{
+    font-size: 1.4em;
+}
+
+.post_header_social{
+    margin: 0.5em 0;
+    font-size: 3em;
+}
+
+.post_header_social a{
+    color: #fff;
+}
+
+.post_header_social a:hover{
+    text-shadow: 0 0 3px #fff;
+}
+
+.post_header_social ul li{
+    display: inline;
+    margin: 0 0.5em;
+}
+
+.post_header_color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.post_header_info{
+    width: 100em;
+    max-width: 95%;
+    margin: 2em auto;
+}
+
+.post_header_info_left{
+    float: left;
+    width: 70%;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #545454;
+}
+
+.fb-like{
+    text-align: right;
+    float: right;
+    width: 30%;
+    overflow: hidden;
+}
+
+.post_subtitle{
+    font-size: 2.7em;
+    color: #0a6877;
+    text-align: center;
+    width: 70%;
+    margin: 2em auto;
+}
+
+
+.content{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.post_text{
+    width: 60%;
+    float: left;
+    padding: 0 1em;
+    font-size: 1.8em;
+    font-weight: 300;
+    color: #828282;
+}
+
+.post_text a{
+    color: #0a6877;
+    font-weight: 400;       
+}
+
+.post_text b, .post_text strong{
+    font-weight: 400;
+}
+
+.post_text i, .post_text em{
+    font-style: italic;
+}
+
+.post_related{
+    width: 40%;
+    float: right;
+    overflow: hidden;
+}
+
+.post_grid{
+    width: 80%;
+    margin: 4em auto;
+}
+
+.post_grid_inner_image{
+    width: 100%;
+    height: 20em;
+}
+
+.post_grid_inner h1{
+    font-size: 1.8em;
+    margin: 0.5em 0;
+    color: #545454;
+}
+
+.post_grid_inner h2{
+    font-size: 1.6em;
+    color: #828282;
+    font-weight: 300;
+}
+
+.box_fb{
+    margin: 2em auto;
+}
+
+@media screen and (max-width: 1024px){
+    
+    .post_header h1{
+        font-size: 2.5em;
+    }
+    
+    .post_header_inner span{
+        font-size: 1.2em;
+    }
+    
+    .post_subtitle{
+        width: 90%;
+        font-size: 2.5em;
+    }
+    
+}
+
+@media screen and (max-width: 768px){
+
+    .post_text, .post_related{
+        float: none;
+        width: 100%;
+        margin: 1em auto;
+    }
+
+}
+
+@media screen and (max-width: 360px){
+    
+    .post_header{
+        max-width: 98%;
+        padding: 5em 0.5em;
+    }
+    
+    .post_header h1{
+        font-size: 2em;
+    }
+    
+    
+    .post_subtitle{
+        font-size: 1.8em;
+    }
+    
+    .content{
+        width: 98%;
+    }
+    
+    .post_text{
+        font-size: 1.6em;
+    }
+    
+}

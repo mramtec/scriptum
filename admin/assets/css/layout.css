@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+
+html, body, input, textarea, button, select{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container{
+    width: 100%;
+    z-index: 0;
+    padding-bottom: 8em;
+}
+
+.container h3{
+    margin-top: 10px;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.content_inner{
+    padding: 8em 1em;
+}
+
+.content_section_title{
+    width: 100%;
+    height: 50em;
+    color: #fff;
+    position: relative;
+}
+
+.content_section_title_color{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(2, 43, 99, 0.5);
+    background: linear-gradient(rgba(2, 43, 99, 0.5), rgba(2,43,99,0.9));
+    background: -o-linear-gradient(rgba(2, 43, 99, 0.5), rgba(2,43,99,0.9));
+    background: -moz-linear-gradient(rgba(2, 43, 99, 0.5), rgba(2,43,99,0.9));
+    background: -webkit-linear-gradient(rgba(2, 43, 99, 0.5), rgba(2,43,99,0.9));
+}
+
+.content_section_title_inner{
+    position: absolute;
+    z-index: 50;
+    bottom: 2em;
+    width: 90%;
+    height: 10em;
+}
+
+.content_section_title h1{
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    font-size: 3em;
+    z-index: 10;
+    width: 80%;
+}
+
+
+.message{
+    position: fixed;
+    width: 25em;
+    height: 16em;
+    right: 5em;
+    bottom: -17em;
+    z-index: 100;
+    background: rgba(2, 43, 99, 0.6);
+    background: linear-gradient(rgba(2, 43, 99, 0.6), rgba(2,43,99,0.7));
+    background: -o-linear-gradient(rgba(2, 43, 99, 0.6), rgba(2,43,99,0.7));
+    background: -moz-linear-gradient(rgba(2, 43, 99, 0.6), rgba(2,43,99,0.7));
+    background: -webkit-linear-gradient(rgba(2, 43, 99, 0.6), rgba(2,43,99,0.7));
+    box-shadow: 6px 4px 5px #545454;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 1em 0.5em;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.message_inner{
+    width: 100%;
+    font-size: 1.6em;
+    text-align: center;
+    color: #fff;
+}
+
+.title_description{
+    width: 80%;
+    font-size: 1.7em;
+    font-weight: 300;
+    color: #858585;
+    margin: 0 0 1em 0;
+}
+
+
+@media screen and (max-width: 768px){
+    .message{
+        width: 80%;
+        right: 10%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }  
+}
+
+
+@media screen and (max-width: 640px){
+
+    .content{
+        padding: 9em 0;
+    }
+    
+    .title_description{
+        width: 90%;
+        margin: 0 0 0 0.9em;
+        
+    }
+}
+
+@media screen and (max-width: 480px){
+    
+    .content{
+        padding: 0 0.3em;
+    }
+
+}

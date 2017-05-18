@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+
+.box1{
+    width: 80%;
+    padding: 3em 1em;
+    margin: 0 auto;
+}
+
+.box1 > h2{
+    font-size: 2em;
+    font-weight: 300;
+    color: #858585;
+    width: 80%;
+    margin: 2em 0;
+}
+
+.box1_title{
+    font-size: 2.5em;
+    margin: 0.5em 0;
+    color: #858585;
+}
+
+.box1_left{
+    width: 50%;
+    float: left;
+}
+
+.box1_left ul li{
+    width: 90%;
+    margin: 1em 0;
+}
+
+.box1_left input, .box1_left textarea{
+    width: 100%;
+    padding: 0.4em 0.7em;
+    color: #989898;
+    border: 1px #ddd solid;
+    background: #fff;
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+.box1_left textarea{
+    height: 6em;
+}
+
+.box1_description{
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #989898;
+}
+
+.load{
+    margin: 1em 0;
+}
+
+.box1_left button, .load{
+    background: none;
+    color: #989898;
+    border: 1px #989898 solid;
+    padding: 0.8em 2em;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+.box1_left button:hover, .load:hover{
+    background: #989898;
+    color: #fff;
+}
+
+.box1_right{
+    border-left: 1px #ddd solid;
+    padding: 0 1em;
+    width: 50%;
+    float: right;
+}
+
+.box1_right ul li{
+    margin: 0.9em 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    color: #989898;
+}
+
+.box1_right ul li:hover{
+    background: #989898;
+    color: #fff;
+}
+
+.box1_right_item_left{
+    width: 80%;
+    float: left;
+}
+
+.box1_right_item_right{
+    float: right;
+    width: 20%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.box1_right_item_left i{
+    font-size: 1.6em;
+}
+
+.box1_right_item_left span{
+    font-size: 1.9em;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1024px){
+
+    .box1_left, .box1_right{
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    
+    .box1_left ul li{
+        text-align: center;
+        margin: 1em auto;
+    }
+    
+    .box1_right{
+        margin: 4em auto;
+        border-left: none;
+        border-top: 1px #ddd solid;
+    }
+    
+    .box1_right_item_left{
+        text-align: left;
+    }
+    
+    .box1_right_item_right{
+        border-left: 1px #ddd solid;
+    }
+    
+    .box1_right ul li{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .box1{
+        width: 95%;
+    }
+}

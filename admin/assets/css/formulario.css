@@ -1,0 +1,209 @@
+@CHARSET "UTF-8";
+
+/* Itens for CSS3 Transitions */
+
+.button, .box_upload, .box_right{
+    transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+}
+
+/* Itens for font Source Sans Pro */
+
+body, .input, .select, .button, .subtitulo, .tag_area{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#titulo, #subtitulo{
+    width: 100%;
+    padding: 2px 5px;
+}
+
+.content ul li{
+    margin-bottom: 3em;
+}
+
+.input{
+    color: #545454;
+    border: 1px #969696 solid;
+    font-size: 2.1em;
+    background: none;
+    line-height: 1.7em;
+    font-weight: 200;
+}
+
+.textarea{
+    margin: 0 auto;
+    min-height: 500px;
+    width: 100%;
+}
+
+.select{
+    color: #0a6877;
+    border: 1px #989898 solid;
+    font-size: 1.8em;
+    margin: 1em auto;
+    background: none;
+    padding: 0em 1em;
+}
+
+.button{
+    width: 40%;
+    color: #868686;
+    border: 2px #ddd solid;
+    cursor: pointer;
+    font-size: 2.4em;
+    background: #ddd;
+    font-weight: 400;
+}
+
+.button:hover{
+    background: none;
+}
+
+.btn_publicar{
+    
+    text-align: center;
+    margin: 1em auto;
+    padding: 10px 0 10px 0;
+}
+
+.tag_area{
+    width: 90%;
+    height: 9em;
+    margin: 1em auto;
+    border: 1px #ddd solid;
+    color: #545454;
+    padding: 0.5em;
+}
+
+
+.post_left, .left_bar{
+    float: left;
+    width: 65%;
+    padding: 0 10px 0 0;
+}
+
+.right_bar{
+    float: right;
+    width: 35%;
+    height: 200px;
+    padding: 0 5px 20px 5px;
+}
+
+
+.box_right{
+    width: 100%;
+    min-height: 120px;
+    border: 1px #969696 solid;
+    margin-bottom: 20px;
+    padding: 0 0 1em 0;
+    text-align: center;
+}
+
+.box_right:hover{
+    box-shadow: 0 1px 9px #ddd;
+}
+
+.box_right h2{
+    color: #0a6877;
+    width: 100%;
+    background: #ddd;
+    font-size: 1.7em;
+    font-weight: 400;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+
+.box_right h3{
+    font-size: 1.3em;
+    color: #333;
+}
+
+.box_right h4{
+    font-size: 1.8em;
+    color: #0a6877;
+}
+
+.box_right img{
+    margin: 1em auto;
+    width: 90%;
+}
+
+.box_right h7{
+    font-size: 1.4em;
+    color: #333;
+    cursor: pointer;
+}
+
+.hidden_capa, .hidden_miniatura{
+    display: none;
+}
+
+.box_upload{
+    width: 80%;
+    margin: 0.5em auto;
+    padding: 1.5em 0;
+    text-align: center;
+    color: #0a6877;
+    cursor: pointer;
+    border: 1px #ddd dotted;
+}
+
+.box_upload h8, .box_doc_exists h8{
+    width: 100%;
+    font-size: 6em;
+    cursor: pointer;
+}
+
+.box_upload:hover{
+    background: #0a6877;
+    color: #fff;
+}
+
+.agendamento_stats{
+    min-height: 0.6em;
+}
+
+.agendamento_alert{
+    text-align: center;
+    font-size: 2em;
+    padding: 1em;
+    color: #989898;
+}
+
+.agendamento_data, .agendamento_hora{
+    padding: 0.8em 0;
+    background: #ddd;
+    width: 95%;
+    margin: 0 auto;
+    display: none;
+}
+
+.agendamento_hora, .agendamento_data{
+    margin: 0.5em auto
+}
+
+
+@media screen and (max-width: 1300px){
+
+    .post_left, .left_bar{
+        float: none;
+        width: 95%;
+        margin: 0 auto;
+        padding: 0 10px 0 0;
+    }
+
+    .right_bar{
+        float: none;
+        width: 95%;
+        margin: 1em auto;
+    }
+    
+    
+}
+
+@media screen and (max-width: 1024px){
+
+}

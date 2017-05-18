@@ -1,0 +1,245 @@
+@CHARSET "UTF-8";
+
+.no_register{
+    font-size: 1.5em;
+    text-align: center;
+    color: #0a6877;
+    font-weight: 200;
+    text-shadow: 0 0 1px #000;
+}
+
+.box_top_search{
+    width: 100%;
+    position: relative;
+}
+
+.busca_box{
+    margin: 0 0 3em 0;
+    width:100%;
+    text-align: center;
+    position: relative;
+}
+
+.busca{
+    width: 50%;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-size: 20px;
+    font-weight: 200;
+    padding: 0.5em 0;
+    text-align: center;
+    color: #989898;
+}
+
+.resultados ul{
+    width: 50%;
+    background: rgba(51,51,51,0.85);
+    right: 25%;
+    left: 25%;
+    top: 4.5em;
+    position: absolute;
+    z-index: 10;
+    border-bottom-left-radius: 2px;
+    -moz-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    -moz-border-bottom-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+}
+
+.resultados ul li{
+    color: #0a6877;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.resultados ul a{
+    position: relative;
+    font-weight: 200;
+    width: 100%;
+    z-index: 999;
+    color: #fff;
+    font-size: 18px;
+}
+
+.posts ul li{
+    width: 95%;
+    margin: 0.3em auto;
+    overflow: hidden;
+}
+
+.box_post{
+    width: 100%;
+    padding: 1.5em 1em;
+    position: relative;
+    color: #545454;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    overflow: hidden;
+}
+
+.box_post_left{
+    float: left;
+    width: 85%;
+}
+
+.box_post_left h2{
+    font-size: 2.5em;
+    margin: 0.2em 0;
+}
+
+.box_post_left h2 span{
+    font-size: .7em;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.box_post_left h3, .box_post_left h4{
+    font-size: 1.6em;
+    margin: 0.1em 0;
+    font-weight: 200;
+    vertical-align: middle;
+}
+
+.box_post_right{
+    float: right;
+    width: 15%;
+    min-height: 80px;
+    position: relative;
+    border-left: 1px #ddd solid;
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.box_post_right_item{
+    width: 33.333333333%;
+    text-align: center;
+    font-size: 2em;
+}
+
+.box_post_right_item a{
+    color: #545454;
+}
+
+.box_load{
+    width: 100%;
+    min-height: 130px;
+    overflow: hidden;
+    padding: 1em 0;
+}
+
+.box_load h8{
+    font-size: 1.9em;
+    color: #545454;
+    width: 100%;
+}
+
+.load{
+    min-width: 250px;
+    padding: 0.6em 0;
+    color: #545454;
+    border: 1px #545454 solid;
+    background: none;
+    font-size: 2em;
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+.load:hover{
+    background: #545454;
+    color: #fff;
+    box-shadow: 0 0 5px #000;
+    -moz-box-shadow: 0 0 5px #000;
+    -webkit-box-shadow: 0 0 5px #000;
+}
+
+
+.color{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+}
+
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -20;
+    opacity: 0;
+}
+
+@media screen and (max-width: 640px){
+
+    .box_post_left{
+        width: 60%;
+    }
+    
+    .box_post_left h2{
+        font-size: 1.9em;
+    }
+    
+    .box_post_left h2 span{
+        font-size: 0.5em;
+    }
+    
+    .box_post_left h3, .box_post_left h4{
+        font-size: 1.4em;
+    }
+    
+    .box_post_right{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 640px){
+    .busca, .resultados ul{
+        width: 90%;
+    }
+    
+    .resultados ul{
+        right: 5%;
+        left: 5%;
+        
+    }
+}
+
+@media screen and (max-width: 360px){
+    
+    .posts ul li{
+        border: 1px #ddd solid;
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+    }
+    
+    .box_post_right, .box_post_left{
+        width: 100%;
+        float: left;
+    }
+    
+    .box_post_right{
+        border-left: none;
+        border-top: 1px #ddd solid;
+    }
+    
+    .box_post_left{
+        text-align: center;
+        padding: 1em 0;
+    }
+    
+}

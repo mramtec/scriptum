@@ -1,0 +1,162 @@
+@CHARSET "UTF-8";
+
+.box1{
+    width: 100%;
+    margin: 4em 0;
+}
+
+.box1_left, .box1_right{
+    float: left;
+    width: 50%;
+}
+
+.box1_left_inner h1,
+.box1_right_inner h1{
+    font-size: 2em;
+    color: #134374;
+}
+
+.box1_right_inner_line,
+.box1_left_inner_line{
+    width: 90%;
+    margin: 1em auto;
+}
+
+.box1_right_inner_line h2,
+.box1_left_inner_line h2{
+    font-size: 1.4em;
+    color: #545454;
+}
+
+.box1_right_inner_line h2 span,
+.box1_left_inner_line h2 span{
+    font-weight: 300;
+}
+
+.box1_right_inner_line h3,
+.box1_left_inner_line h3{
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #989898;
+}
+
+.box1_left_inner,
+.box1_right_inner{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.box1_left_inner_list,
+.box1_right_inner_list{
+    width: 100%;
+    height: 35em;
+    overflow-y: auto;
+}
+
+.box2{
+    margin: 2px auto;
+}
+
+.box2_grid{
+    float: left;
+    width: 25%;
+    height: 30em;
+    outline: 2px #fff solid;
+    padding: 1em;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    position: relative;
+}
+
+.box2_grid_inner{
+    z-index: 10;
+    color: #fff;
+}
+
+.box2_grid_inner a{
+    color: #fff;
+}
+
+.box2_grid_inner h1{
+    font-size: 2em;
+}
+
+.box2_grid_inner i{
+    vertical-align: middle;
+}
+
+.box2_grid_inner h2{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.color{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+
+.more{
+    width: 200px;
+    margin: 3em auto;
+    padding: 15px 0 15px 0;
+    border: 2px #ddd solid;
+    text-align: center;
+    font-size: 2em;
+    color: #989898;
+    cursor: pointer;
+    border-radius: 3px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.more:hover{
+    background: #ddd;
+    color: #fff;
+}
+
+.endload{
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #989898;
+    display: none;
+    margin: 3.5em auto;
+}
+
+
+@media screen and (max-width: 1024px){
+    
+    .box2_grid{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 640px){
+    
+    .box2_grid{
+        float: none;
+        width: 95%;
+        margin: 1em auto;
+    }
+    
+}
+
+@media screen and (max-width: 480px){
+    .box1_left, .box1_right{
+        float: none;
+        width: 100%;
+    }    
+    
+    .box1_right{
+        border-bottom: 1px #ddd solid;
+    }
+}

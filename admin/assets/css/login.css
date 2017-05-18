@@ -1,0 +1,84 @@
+@CHARSET "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+
+html, body, input, textarea, button{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+
+.container{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background: url(../img/04.jpg) scroll bottom center no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.box_login{
+    width: 35em;
+    height: auto;
+    padding: 0 0 2em 0;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0,0,0,0.0);
+    display: none;
+}
+
+.box_user_image{
+    margin: 3em 0;
+}
+
+.box_user_image img{
+    width: 110px;
+    border-radius: 50% 50%;
+}
+
+.box_user_mail, .box_user_pass{
+    margin: 1em auto;
+    width: 250px;
+    min-width: 231px;
+    background: #ddd;
+    padding: 0.5em 0;
+}
+
+.box_user_mail input, .box_user_pass input{
+    width: 200px;
+    padding: 0.5em;
+    background: none;
+    border: none;
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.box_user_mail img, .box_user_pass img{
+    width: 28px;
+    vertical-align: middle;
+}
+
+.box_login_inner h3{
+    margin: 1em 0;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.box_user_btn{
+    width: 100%;
+    margin: 4em auto;
+}
+
+.button{
+    padding: 0.5em 2em;
+    font-size: 1.9em;
+    font-weight: 300;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    border: none;
+}
