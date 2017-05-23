@@ -1,0 +1,91 @@
+header{
+    width: 100%;
+    padding: 2em 0.5em;
+    font-size: 4em;
+    font-weight: 300;
+    position: relative;
+    background: url(../img/instalacao.jpg) scroll center bottom no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+header .color{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+}
+
+.container{
+    max-width: 1000px;
+    width: 95%;
+    margin: 3em auto;
+}
+
+.container legend{
+    font-size: 1.9em;
+    color: #134374;
+}
+
+.container fieldset{
+    margin: 5em auto;
+}
+
+.first_user{
+    width: 60%;
+    text-align: center;
+    margin: 1em auto;
+}
+
+.first_user input{
+    text-align: center;
+}
+
+.b_grid2{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.b_grid3{
+    float: left;
+    width: 33.33333333333%;
+}
+
+fieldset h2{
+    font-size: 1.5em;
+    margin: 1em 0;
+    color: #134374;
+}
+
+fieldset ul li{
+    margin: 1em auto;
+    text-align: center;
+}
+fieldset ul li span{
+    margin: 0 1em;
+}
+
+fieldset ul li input{
+    width: 80%;
+    border: none;
+    border-bottom: 2px #134374 solid;
+    padding: 0.5em 0.3em;
+    color: #134374;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+lime
+.locale{
+    max-width: 60em;
+    width: 85%;
+}
+
+.locale select{
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    border: 1px #134374 solid;
+    color: #134374;
+}
