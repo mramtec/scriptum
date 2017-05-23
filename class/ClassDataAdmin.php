@@ -5,13 +5,27 @@ spl_autoload_register(function($class){
 });
 
 class ClassDataAdmin extends ClassDataBase{
-    
+
+
     private $NameTable;
+    private $Email;
+    private $Password;
+
+
+    public function setEmail($mail){
+        $this->Email = $mail;
+    }
+    
+    
+    public function setPass($pass){
+        $this->Password = $pass;
+    }
     
     
     public function setNameTable($table){
         $this->NameTable = $table;
     }
+    
     
     public static function getExistTable( $Like = NULL ){
         
