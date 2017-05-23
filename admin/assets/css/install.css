@@ -54,6 +54,14 @@ header .color{
     width: 33.33333333333%;
 }
 
+.b_grid3 ul li p{
+    margin: 0.2em 0;
+}
+
+.b_grid3 ul li input{
+    text-align: center;
+}
+
 fieldset h2{
     font-size: 1.5em;
     margin: 1em 0;
@@ -77,7 +85,7 @@ fieldset ul li input{
     font-size: 1.5em;
     font-weight: 400;
 }
-lime
+
 .locale{
     max-width: 60em;
     width: 85%;
@@ -88,4 +96,14 @@ lime
     font-size: 1.5em;
     border: 1px #134374 solid;
     color: #134374;
+}
+
+.container button{
+    padding: 0.8em 3em;
+    font-size: 2em;
+    font-weight: 300;
+    color: #fff;
+    background: #134374;
+    border:none;
+    box-shadow: 0 2px 40px #545454;
 }
