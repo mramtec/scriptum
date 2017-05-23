@@ -148,6 +148,15 @@ class ClassDataAdmin extends ClassDataBase{
                             PRIMARY KEY (id)
                         )";
 
+        $SlideSQL = "CREATE TABLE slide (
+                        id INT NOT NULL AUTO_INCREMENT,
+                        slide_titulo VARCHAR(255) NOT NULL,
+                        slide_descricao VARCHAR(255) NULL,
+                        slide_link TEXT NULL,
+                        slide_data DATETIME NOT NULL,
+                        PRIMARY KEY (id)
+                    )";
+        
         if(!self::getExistTable('acessos')){
             $AcessoQuery = ClassDataBase::prepare($AcessoSQL);
             $AcessoQuery->execute();
