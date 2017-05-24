@@ -7,26 +7,14 @@
     });
     
 
-    $POST               = filter_input(INPUT_POST, "create", FILTER_SANITIZE_SPECIAL_CHARS);
-    $Titulo             = filter_input(INPUT_POST, "titulo", FILTER_SANITIZE_SPECIAL_CHARS);
-    $Subtitulo          = filter_input(INPUT_POST, "subtitulo", FILTER_SANITIZE_SPECIAL_CHARS);
+    $POST               = filter_input(INPUT_POST, "create", FILTER_DEFAULT);
+    $Titulo             = filter_input(INPUT_POST, "titulo", FILTER_DEFAULT);
+    $Subtitulo          = filter_input(INPUT_POST, "subtitulo", FILTER_DEFAULT);
     $Texto              = filter_input(INPUT_POST, "texto", FILTER_DEFAULT);
-    $Tags               = filter_input(INPUT_POST, "tags", FILTER_SANITIZE_SPECIAL_CHARS);
+    $Tags               = filter_input(INPUT_POST, "tags", FILTER_DEFAULT);
     $Categoria          = filter_input(INPUT_POST, "categoria", FILTER_DEFAULT);
-    $Status             = filter_input(INPUT_POST, "status", FILTER_SANITIZE_SPECIAL_CHARS);
-    /*$AgendamentoStats   = filter_input(INPUT_POST, "agendamento_stats", FILTER_SANITIZE_SPECIAL_CHARS);
-    $AgendamentoDia     = filter_input(INPUT_POST, "agendamento_dia", FILTER_SANITIZE_SPECIAL_CHARS);
-    $AgendamentoMes     = filter_input(INPUT_POST, "agendamento_mes", FILTER_SANITIZE_SPECIAL_CHARS);
-    $AgendamentoAno     = filter_input(INPUT_POST, "agendamento_ano", FILTER_SANITIZE_SPECIAL_CHARS);
-    $AgendamentoHora    = filter_input(INPUT_POST, "agendamento_hora", FILTER_SANITIZE_SPECIAL_CHARS);
-    $AgendamentoMinuto  = filter_input(INPUT_POST, "agendamento_minuto", FILTER_SANITIZE_SPECIAL_CHARS);
-
-
-    if($AgendamentoStats == 1)
-        $Agendamento = $AgendamentoAno.'-'.$AgendamentoMes.'-'.$AgendamentoDia.' '.$AgendamentoHora.':'.$AgendamentoMinuto.':00';
-    else
-        $Agendamento = null;
-*/    
+    $Status             = filter_input(INPUT_POST, "status", FILTER_DEFAULT);
+    
     
     if(isset($POST)){
        

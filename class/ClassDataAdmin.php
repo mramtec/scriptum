@@ -10,7 +10,7 @@ class ClassDataAdmin extends ClassDataBase{
     private $NameTable;
     private $Email;
     private $Password;
-
+    private $Name;
 
     public function setEmail($mail){
         $this->Email = $mail;
@@ -21,6 +21,10 @@ class ClassDataAdmin extends ClassDataBase{
         $this->Password = $pass;
     }
     
+    
+    public function setName($nome){
+        $this->Name = $nome;
+    }
     
     public function setNameTable($table){
         $this->NameTable = $table;
@@ -202,12 +206,27 @@ class ClassDataAdmin extends ClassDataBase{
             $PostQuery->execute();
         }
         
+        if(!self::getExistTable('slide')){
+            $SlideQuery = ClassDataBase::prepare($SlideSQL);
+            $SlideQuery->execute();
+        }
+        
         if(!self::getExistTable('usuarios')){
             
             $UsuarioQuery = ClassDataBase::prepare($UsuarioSQL);
             
             if($UsuarioQuery->execute())
-                $InsertUser = ClassDataBase::prepare ("INSERT INTO usuarios (usuario_url, usuario_nome, usuario_senha, usuario_email, usuario_privilegio, usuario_acesso) VALUES ('sistema', 'Sistema', '4c91d222b139eeccd6eb342f512ec180', 'sistema@sis.com', 'administrador', '1')");
+                $InsertUser = ClassDataBase::prepare ("INSERT INTO usuarios "
+                        . "(usuario_url, usuario_nome, usuario_senha, usuario_email, usuario_privilegio, usuario_acesso)"
+                        . " VALUES (:url, :nome, :senha, :email, :privilegio, :acesso)");
+                
+                $InsertUser->bindValue(':url', ClassPost::post_url_edit($this->Name));
+                $InsertUser->bindValue(':nome', $this->Name);
+                $InsertUser->bindValue(':senha', md5($this->Password));
+                $InsertUser->bindValue(':email', $this->Email);
+                $InsertUser->bindValue(':privilegio', 'administrador');
+                $InsertUser->bindValue(':acesso', 1);
+
                 if($InsertUser->execute())
                     return true;
                 else
@@ -215,19 +234,5 @@ class ClassDataAdmin extends ClassDataBase{
         }
 
     }
-    
-    
-    private function Table(){
-        
-    }
+
 }
-
-/*
-$class = new ClassDataAdmin();
-$class->setNameTable('usuarios');
-$class->getExistTable();
-
-echo md5('sistema');
- * 
- * 
- */
