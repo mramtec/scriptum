@@ -11,7 +11,16 @@
     $email = strlen($Form_User) == 0 ? base64_decode($NovoUserLogin) : $Form_User;
     $senha = strlen($Form_Pass) == 0 ? base64_decode($NovoPassLogin) : $Form_Pass;
     
+    $installation = filter_input(INPUT_GET, 'first_installation', FILTER_VALIDATE_BOOLEAN);
+    
     if(isset($email)){
+        
+        
+        if($installation == TRUE){
+            unlink('../install/index.php');
+            unlink('../install/ProcessInstall.php');
+            rmdir('../install');
+        }
         
         $access = new ClassAccess();
         $access->access_define_data($email, $senha);
