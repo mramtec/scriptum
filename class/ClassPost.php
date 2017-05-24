@@ -222,6 +222,19 @@ class ClassPost extends ClassDataBase{
     }
     
     
+    public function PostVisualizacoes(){
+        
+        $post = ClassDataBase::prepare("UPDATE posts SET post_visualizacoes = :num WHERE id = :id");
+        $post->bindValue(':num', $this->visualizacoes);
+        $post->bindValue(':id', $this->id);
+        if($post->execute())
+            return true;
+        else 
+            return false;
+
+    }    
+    
+    
     public function post_update_imagem(string $opcao, int $id){
         if($opcao == "miniatura"){
 
