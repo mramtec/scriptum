@@ -42,53 +42,6 @@ $(document).ready(function(){
 
     }
     
-    /*
-    $("#delete_capa").on("click", function(){
-
-        var Path = $(this).attr("data-capa");
-        var ID = $(this).attr("data-post");
-
-        $.ajax({
-            url: "process/Process_Post_Edit_Ajax.php",
-            method: "post",
-            data: "apagar_capa=" + Path + "&apagar_post=" + ID
-        }).done(function(data){
-            if(data === '1'){
-                $(".capa_" + ID).fadeOut("slow", function(){
-                    $('.bottom_capa_inner_actions').append().html('<i id="action_upload_capa" class="fa fa-cloud-upload fa-fw"></i>');
-                    OnClickCapa();
-                });
-            }
-        }).error(function(data){
-           alert("Falha na rede!");
-        });
-
-    });
-    
-    
-    $("#delete_mini").on("click", function(){
-
-        var Path = $(this).attr("data-mini");
-        var ID = $(this).attr("data-post");
-
-        $.ajax({
-            url: "process/Process_Post_Edit_Ajax.php",
-            method: "post",
-            data: "apagar_mini=" + Path + "&apagar_post=" + ID
-        }).done(function(data){
-            if(data === '1'){
-                $(".miniatura_" + ID).fadeOut("slow", function(){
-                    $('#delete_mini').fadeOut('fast');
-                    $('.bottom_box_inner_actions').append().html('<i id="action_upload" class="fa fa-cloud-upload fa-fw"></i>');
-                    OnClickMini();
-                });
-            }
-        }).error(function(data){
-           alert("Falha na rede!");
-        });
-
-    });    
-    */
 
     $('.titulo').keyup(function(){
         if($(this).val().length != 0){
@@ -108,45 +61,7 @@ $(document).ready(function(){
         loadLineBotton($(this), limitTAGS);
     });
    
-   
-   /* Visualization images on post 
 
-   $('#action_view').click(function(){
-       $('.box_view_images').animate({
-           right: '0%'
-       },{
-           duration: 750,
-           specialEasing: {
-               right: 'easeInOutQuint'
-           }
-       }, setTimeout(function(){$('.view_miniatura').fadeIn(400)}, 750));
-   });
-   
-   
-    $('#action_view_capa').click(function(){
-       $('.box_view_images').animate({
-           right: '0%'
-       },{
-           duration: 750,
-           specialEasing: {
-               right: 'easeInOutQuint'
-           }
-       }, setTimeout(function(){$('.view_capa').fadeIn(400)}, 750));
-    });
-
-
-    $('.box_view_images').click(function(){
-       $(this).animate({
-           right: '-=100%'
-       },{
-           duration: 600,
-           specialEasing: {
-               right: 'easeInOutQuint'
-           }
-       }, setTimeout(function(){$('.view_miniatura, .view_capa').fadeOut(400)}, 600));
-    });
-   */
-   
     OnClickMini();
     OnClickCapa();
 });

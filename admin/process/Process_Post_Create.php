@@ -37,7 +37,7 @@
 
             $FileCapa = new ClassArchives();
             $FileCapa->setArquivo($_FILES['capa']);
-            $FileCapa->setLocal('uploads/capas/');
+            $FileCapa->setLocal('uploads/capa/');
                 
             if($FileCapa->getValidaoArquivo('capa') === true)
                 $insert->setImagemCapa($FileCapa->getNovoArquivo());

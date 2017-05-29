@@ -4,7 +4,7 @@ $(document).ready(function(){
         selector: '#textarea',
         language: 'pt_BR',
         height: 360,
-        skin: 'isabeltavares',
+        skin: 'scriptum',
         plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",

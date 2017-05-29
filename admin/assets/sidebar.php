@@ -10,6 +10,12 @@
                     <div class="asideload"></div>
                 </li>
             </a>
+            <a href="slide.php">
+                <li>
+                    <i class="fa fa-desktop fa-fw"></i> Slide-Show
+                    <div class="asideload"></div>
+                </li>                
+            </a>
             <a href="create.php">
                 <li>
                   <i class="fa fa-file-o fa-fw"></i> Criar
@@ -68,9 +74,9 @@
             if(is_file('../'.$_SESSION['usuarioFoto']))
                 echo '<a href="profile"><img src="../'.$_SESSION['usuarioFoto'].'" style="border-radius:50%50%;-moz-border-radius:50%50%;-webkit-border-radius:50%50%;" /></a>';
             else
-                echo '<a href="profile"><img src="img/default_user.png" style="border-radius:50%50%;-moz-border-radius:50%50%;-webkit-border-radius:50%50%;"/></a>';
+                echo '<a href="profile"><img src="assets/img/default_user.png" style="border-radius:50%50%;-moz-border-radius:50%50%;-webkit-border-radius:50%50%;"/></a>';
         }else
-            echo '<a href="profile"><img src="img/default_user.png" style="border-radius:50%50%;-moz-border-radius:50%50%;-webkit-border-radius:50%50%;"/></a>';
+            echo '<a href="profile"><img src="assets/img/default_user.png" style="border-radius:50%50%;-moz-border-radius:50%50%;-webkit-border-radius:50%50%;"/></a>';
         
         ?>
     </div>

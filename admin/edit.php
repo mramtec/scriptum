@@ -34,7 +34,7 @@
         <script type="text/javascript" src="assets/js/sidebar.js"></script>
         <script type="text/javascript" src="assets/js/formulario.js"></script>
         <script src="assets/js/layout.js" type="text/javascript"></script>
-        <script src="js/edit.js" type="text/javascript"></script>
+        <script src="assets/js/edit.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">

@@ -94,7 +94,7 @@
             
             $FileCapa = new ClassArchives();
             $FileCapa->setArquivo($_FILES['capa']);
-            $FileCapa->setLocal('uploads/capas_perfil/');
+            $FileCapa->setLocal('uploads/capa/');
             
             
             if(is_file('../../'.$ProfileCapaPath)){

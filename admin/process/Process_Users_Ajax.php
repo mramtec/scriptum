@@ -39,7 +39,7 @@
                                 if(is_file('../../'.$conteudo->usuario_perfil))
                                     echo '<img src="../'.$conteudo->usuario_perfil.'" />';
                                 else
-                                    echo '<img src="../img/default.png" />';
+                                    echo '<img src="assets/img/default_user.png" />';
                             echo '</div>';
                             echo '<h2>'.$conteudo->usuario_nome.'</h2>';
                             echo '<h3>Nível de acesso: <span id="rotulo_'.$conteudo->id.'">'.$conteudo->usuario_privilegio.'</span> <i style="margin: 0 0.5em; cursor: pointer" class="fa fa-undo" id="acesso_privilegio" data-id="'.$conteudo->id.'"></i></h3>';
