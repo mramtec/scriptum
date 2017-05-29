@@ -10,8 +10,8 @@
 
             define("MINIATURA_LARGURA", 960);
             define("MINIATURA_ALTURA", 960);
-            define("CAPA_LARGURA", 1280);
-            define("CAPA_ALTURA", 720);
+            define("CAPA_LARGURA", 1920);
+            define("CAPA_ALTURA", 1080);
             define("PERFIL_LARGURA", 500);
             define("PERFIL_ALTURA", 500);
         

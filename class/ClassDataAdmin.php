@@ -171,6 +171,7 @@ class ClassDataAdmin extends ClassDataBase{
                         slide_titulo VARCHAR(255) NOT NULL,
                         slide_descricao VARCHAR(255) NULL,
                         slide_link TEXT NULL,
+                        slide_imagem TEXT NOT NULL,
                         slide_data DATETIME NOT NULL,
                         PRIMARY KEY (id)
                     )";
