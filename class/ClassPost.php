@@ -258,22 +258,7 @@ class ClassPost extends ClassDataBase{
             return false;
 
     }
-    
-/*  
-    public function post_excluir(){
-        
-        $sql = "DELETE FROM posts WHERE id = :id";
-        $post = ClassDataBase::prepare($sql);
-        $post->bindValue(':id', $this->id);
-        
-        if($post->execute()){
-            return true;
-        }else{
-            return false;
-        }
 
-    }
-*/
 
     public static function post_url_edit($str, $replace = array(), $delimiter="_"){
         

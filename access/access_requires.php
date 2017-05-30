@@ -24,6 +24,5 @@
 
     if(session_status() == 1 || session_status() == 0) session_start();
     ClassAccess::access_prot_pag();
-    #ClassPost::post_publicar_agendamento();
 
 ?>
