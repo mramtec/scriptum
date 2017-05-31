@@ -161,6 +161,50 @@ class ClassPost extends ClassDataBase{
     }
     
     
+    public function PostTodos( $offset, $status = 1, $limite = 4, $order_by = false, $random = false){
+        
+        if($status == 1){
+            
+            $status_opt = "WHERE post_status = 1";
+            
+        }elseif($status == 0){
+            
+            $status_opt = "WHERE post_status = 0";
+            
+        }elseif($status == 2)
+            $status_opt = "";
+        
+        
+        if($order_by == true){
+            
+            $order_by = "post_visualizacoes";
+            
+        }else if($order_by == false && $random == false){
+            
+            $order_by = "post_data";
+            
+        }else if($order_by == false && $random == true){
+            
+            $order_by = "RAND()";
+        }
+        
+        $data_hoje = date('Y-m-d H:i:s');
+        
+        $sql = "SELECT * FROM posts $status_opt ORDER BY $order_by DESC LIMIT $offset, $limite";
+        $post = ClassDataBase::prepare($sql);
+        
+        if($post->execute()){
+            if($post->rowCount() == 0)
+                return false;
+            else
+                return $post->fetchAll();
+        }else{
+            return false;
+        }
+        
+    }
+    
+    
     public function PostEditar(){
         
         $sql = "UPDATE posts SET "
