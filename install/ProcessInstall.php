@@ -80,16 +80,23 @@
         
         file_put_contents('../.htaccess', $htAccess);
 
+        mkdir(0644, true, '../uploads/');
+        mkdir(0644, true, '../uploads/capas/');
+        mkdir(0644, true, '../uploads/capas_perfil/');
+        mkdir(0644, true, '../uploads/images/');
+        mkdir(0644, true, '../uploads/miniatura/');
+        mkdir(0644, true, '../uploads/perfil/');
+        mkdir(0644, true, '../uploads/slide/');
         
-            $Installation = new ClassDataAdmin();
-            $Installation->setEmail($Email);
-            $Installation->setName($Nome);
-            $Installation->setPass($Senha);
-            
-            if($Installation->getCreateDefaultTables() == TRUE){
-                return header('Location: ../access/access_verify_data.php?new_user_login='.base64_encode($Email).'&new_user_pass='.base64_encode($Senha).'&first_installation=true');
-            }else{
-                echo 'Installation Fail!';
-            }
+        $Installation = new ClassDataAdmin();
+        $Installation->setEmail($Email);
+        $Installation->setName($Nome);
+        $Installation->setPass($Senha);
+
+        if($Installation->getCreateDefaultTables() == TRUE){
+            return header('Location: ../access/access_verify_data.php?new_user_login='.base64_encode($Email).'&new_user_pass='.base64_encode($Senha).'&first_installation=true');
+        }else{
+            echo 'Installation Fail!';
+        }
         
     }
