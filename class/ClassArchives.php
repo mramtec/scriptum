@@ -3,9 +3,6 @@
 include_once 'defines.php';
 
 class ClassArchives {
-    
-    public static $path_upload;
-    public static $path_arquivo;
 
 
     private $local;
@@ -23,7 +20,7 @@ class ClassArchives {
     }
     
     
-    public function setArquivoPath($arquivoPath){
+    public function setArquivoPath($arquivoPath){           /* Diretório para Exclusão ou Busca */
         $this->arquivoPath = $arquivoPath;
     }
     
@@ -79,11 +76,16 @@ class ClassArchives {
         }
     }
     
-    public function getNovoArquivo(){
+    public function getNovoArquivo($NomeFile = FALSE){
         
-        $nome = md5(date('Y-m-d H:i:s')).'.jpg';
+        $nome = NULL;
         
-        if(move_uploaded_file($this->arquivo['tmp_name'], '../../'.$this->local.$nome))
+        if($NomeFile === FALSE)
+            $nome = md5(date('Y-m-d H:i:s')).'.jpg';
+        else
+            $nome = $NomeFile.'.jpg';
+
+        if(move_uploaded_file( $this->arquivo['tmp_name'] , '../../'.$this->local.$nome ))
             return $this->local.$nome;
         else
             return 305;

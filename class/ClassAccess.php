@@ -17,10 +17,15 @@ class ClassAccess extends ClassDataBase {
     public $acesso;
     
     
-    public function access_define_data(string $email, string $senha){
+    public function setEmail($email){
         $this->email = $email;
+    }
+    
+    
+    public function setSenha($senha){
         $this->senha = md5($senha);
     }
+    
     
     public function access_verifica(){
       
@@ -39,9 +44,11 @@ class ClassAccess extends ClassDataBase {
             foreach ($data as $value);
             
             if($this->email == $value->usuario_email && $this->senha == $value->usuario_senha){
+                
                 date_default_timezone_set('America/Bahia');
 
-                if(session_status() != 2){ session_start(); }
+                if(session_status() != 2) session_start();
+                
                 $_SESSION['usuarioID'] = $value->id;
                 $_SESSION['usuarioFoto'] = $value->usuario_perfil;
                 $_SESSION['usuarioNome'] = $value->usuario_nome;
@@ -83,9 +90,10 @@ class ClassAccess extends ClassDataBase {
                     if($value->usuario_acesso == 0)
                         return 'name='.base64_encode($value->nome).'&access=0&profile'.base64_encode($value->perfil);
                     else
-                        return 'true';
+                        return true;
                     
                 endforeach;
+                
             }else{
                 return false;
             }

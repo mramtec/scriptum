@@ -101,6 +101,7 @@ class ClassDataAdmin extends ClassDataBase{
                             categoria_url VARCHAR(255) NOT NULL,
                             categoria_titulo VARCHAR(255) NOT NULL,
                             categoria_descricao VARCHAR(255) NULL,
+                            categoria_imagem TEXT NULL,
                             PRIMARY KEY (id)
                         )";
         

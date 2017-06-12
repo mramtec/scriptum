@@ -70,7 +70,20 @@ class ClassSlide extends ClassDataBase{
         else {
             return false;
         }
+
+    }
+    
+    
+    public static function getQuantidadeSlides(){
         
+        $QuerySQL = ClassDataBase::prepare("SELECT * FROM slide");
+        
+        if($QuerySQL->execute()){
+            return $QuerySQL->rowCount();
+        }else{
+            return false;
+        }
+
     }
     
     

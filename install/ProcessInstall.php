@@ -87,6 +87,7 @@
         mkdir(0644, true, '../uploads/miniatura/');
         mkdir(0644, true, '../uploads/perfil/');
         mkdir(0644, true, '../uploads/slide/');
+        mkdir(0644, true, '../uploads/categoria/');
         
         $Installation = new ClassDataAdmin();
         $Installation->setEmail($Email);

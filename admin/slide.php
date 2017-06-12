@@ -31,12 +31,17 @@
             <div class="content_section_title_inner">
                 <h1><i class="fa fa-desktop fa-fw"></i> Slide-show</h1>
             </div>
-            <i class="fa fa-plus fa-fw" id="adicionar" title="Adicionar novo Slide"></i>
+            
+            <?php 
+                if(ClassSlide::getQuantidadeSlides() < 4){
+                    echo '<i class="fa fa-plus fa-fw" id="adicionar" title="Adicionar novo Slide"></i>';
+                }
+            ?>
+
             <div class="content_section_title_color"></div>
         </div>
 
         <section class="content">
-            
             <div class="box1">
 
             </div>
@@ -59,7 +64,7 @@
                                 <p>Imagem recomendada de: <?php echo CAPA_LARGURA; ?>px de largura por <?php echo CAPA_ALTURA; ?>px de altura</p>
                             </li>
                             <li>
-                                <input type="text" class="input" name="link" placeholder="http://www.">
+                                <input type="text" class="input" name="link" placeholder="http://www.link.com">
                                 <div class="box_inner_line"></div>
                                 <p>Adicione o link com 'http://'</p>
                             </li>

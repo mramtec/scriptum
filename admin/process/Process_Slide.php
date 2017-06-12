@@ -45,9 +45,18 @@
         $Slide->setTitulo($Titulo);
         $Slide->setSubtitulo($SubTitulo);
         $Slide->setLink($Link);
-        if($Slide->getNovoSlide() === true)
+        
+        if($Slide->getNovoSlide() === true){
+            
+            $Registro = new ClassActivity();
+            $Registro->setUsuarioID($_SESSION['usuarioID']);
+            $Registro->setUsuarioNome($_SESSION['usuarioNome']);
+            $Registro->setDescricao('Adicionou um novo slide: '.$Titulo);
+            $Registro->getActivity();
+            
             return header('Location: ../slide?message=001');
-        else
+            
+        }else
             return header('Location: ../slide?message=306');
 
     }
@@ -84,6 +93,13 @@
         if($SlideDelete->getDeleteSlide($DELETE)){
             $SlideArchive->setArquivoPath($LocalImagem);
             $SlideArchive->getExcluirArquivo();
+            
+            $Registro = new ClassActivity();
+            $Registro->setUsuarioID($_SESSION['usuarioID']);
+            $Registro->setUsuarioNome($_SESSION['usuarioNome']);
+            $Registro->setDescricao('Removeu um slide');
+            $Registro->getActivity();
+            
             echo true;
         }else{
             echo false;

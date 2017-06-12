@@ -1,8 +1,15 @@
 $(document).ready(function(){
 
+    $('#open_file').click(function(e){
+        e.preventDefault();
+        $('#file').trigger('click');
+    });
+
     function deleteCat(){
-        $('.box1_right_item_right').on('click', function(){
+        $(document).on('click', '#delete', function(){
+
             var data = $(this).attr('data-id');
+
             $.ajax({
                 url: 'process/Process_Category_Ajax.php',
                 method: 'post',
@@ -27,7 +34,7 @@ $(document).ready(function(){
            if(data == 0){
                 $('.load').text('').text('Fim').PreventDefault();
            }else{
-                $('.box1_right ul').append(data); 
+                $('.box1_right_list').append(data); 
                 deleteCat();
            }
           
@@ -47,7 +54,7 @@ $(document).ready(function(){
         });
     });
     
-    
+    /*
    $("#criar").click(function(){
         
         statusSubmit = true;
@@ -99,7 +106,7 @@ $(document).ready(function(){
             
             return false;
         }); 
-    }); 
+    }); */
 
 
    $('.load').click(function(){

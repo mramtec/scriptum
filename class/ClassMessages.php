@@ -100,6 +100,10 @@ class ClassMessages {
                 return 'Perfil aterado com sucesso';
                 break;
             
+            case '014':
+                return 'Categoria criada com sucesso';
+                break;
+
             default:
                 return 'Contate o administrador: 0XX';
                 break;
@@ -223,6 +227,14 @@ class ClassMessages {
             
             case '206':
                 return 'Não é possível criar uma categoria, permissão negada';
+                break;
+            
+            case '207':
+                return 'Não foi possívei criar a categoria, erro desconhecido.';
+                break;
+            
+            case '208':
+                return 'Não foi possível aterar a categoria';
                 break;
             
             default:

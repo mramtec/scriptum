@@ -1,31 +1,14 @@
 <?php
 
     include_once '../../access/access_requires.php';
-    //require_once '../../class/ClassCategory.php';
     
     spl_autoload_register(function($class){
         require_once '../../class/'.$class.'.php'; 
     });
 
-    $cat_offset = filter_input(INPUT_POST, 'offset', FILTER_SANITIZE_NUMBER_INT);
-    $cat_delete = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT);
+    $cat_offset         = filter_input(INPUT_POST, 'offset', FILTER_SANITIZE_NUMBER_INT);
+    $CategoriaDelete    = filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT);
     
-    $cat_criar = filter_input(INPUT_POST, 'criar', FILTER_DEFAULT);
-    $cat_titulo = filter_input(INPUT_POST, 'titulo', FILTER_DEFAULT);
-    $cat_descricao = filter_input(INPUT_POST, 'descricao', FILTER_DEFAULT);
-
-    if(isset($cat_criar)){
-        
-        $category = new ClassCategory();
-        $category->titulo = $cat_titulo;
-        $category->descricao = $cat_descricao;
-
-        if($category->category_novo())
-            echo 1;
-        else
-            echo 0;
-
-    }
     
     if(isset($cat_offset)){
         
@@ -37,19 +20,26 @@
         }else{
             foreach($data as $value){
                 echo '<li class="clearfix" id="cat_'.$value->id.'">';
-                    echo '<div class="box1_right_item_left"><i class="fa fa-tags fa-fw"></i> <span>'.$value->categoria_titulo.'</span></div>';
-                    echo '<div class="box1_right_item_right" id="delete" data-id="'.$value->id.'"><i class="fa fa-trash-o" style="cursor: pointer;"></i></div>';
+                    echo '<div class="box1_right_item_left"><span><i class="fa fa-tag fa-fw"></i> '.$value->categoria_titulo.'</span></div>';
+
+                    echo '<div class="box1_right_item_right">'
+                        . '<ul>'
+                            . '<li>'
+                            . '<a href="category_edit.php?id='.$value->id.'"><i class="fa fa-edit fa-fw"></i></a>'
+                            . '<i class="fa fa-trash-o" id="delete" data-id="'.$value->id.'" style="cursor: pointer;"></i>'
+                            . '</li>'
+                        . '</ul>'
+                    . '</div>';
                 echo '</li>';
             }
         }        
     }
     
-    if(isset($cat_delete)){
+    if(isset($CategoriaDelete)){
         
-        $category = new ClassCategory();
-        $category->id = $cat_delete;
-        
-        if($category->category_excluir())
+        $Categoria = new ClassCategory();
+        $Categoria->setId($CategoriaDelete);
+        if($Categoria->CategoriaExcluir('id'))
             echo 1;
         else
             echo 0;

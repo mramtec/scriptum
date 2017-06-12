@@ -303,6 +303,8 @@ class ClassPost extends ClassDataBase{
 
     }
 
+    
+    /* Remover na próxima versão */
 
     public static function post_url_edit($str, $replace = array(), $delimiter="_"){
         

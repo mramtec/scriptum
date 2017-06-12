@@ -5,19 +5,20 @@ $(document).ready(function(){
         $('.capa').trigger('click');
     });
     
+    
     $('#adicionar').click(function(){
-        
-       $('.box').animate({
-           left: '0%'
-       },{
-           duration: 900,
-           specialEasing:{
-               left: 'easeInOutQuint'
-           }
-       },
-           setTimeout(function(){ $('.box_inner').fadeIn(400); }, 900)
-       );
+        $('.box').animate({
+            left: '0%'
+        },{
+            duration: 900,
+            specialEasing:{
+                left: 'easeInOutQuint'
+            }
+        },
+            setTimeout(function(){ $('.box_inner').fadeIn(400); }, 900)
+        );
     });
+    
     
     $('.box_color').click(function(){
        $('.box').animate({

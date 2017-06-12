@@ -34,6 +34,7 @@
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
         <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+        <script src="assets/js/formulario.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/js/sidebar.js"></script>
         <script type="text/javascript" src="assets/js/layout.js"></script>
         <script type="text/javascript" src="assets/js/profile.js"></script>

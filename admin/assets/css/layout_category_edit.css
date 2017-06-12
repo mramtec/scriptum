@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+
+.box1{
+    width: 80%;
+    padding: 3em 1em;
+    margin: 0 auto;
+}
+
+.box1_left{
+    width: 50%;
+    padding: 5em 0;
+    float: left;
+}
+
+.box1_left ul li{
+    width: 90%;
+    margin: 2em 0;
+}
+
+.box1_left textarea{
+    width: 100%;
+    padding: 0.3em 0.6em;
+    color: #858585;
+    border: 1px #ddd solid;
+    background: #fff;
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+.box1_left input{
+    padding: 0.4em 0.7em;
+    font-size: 1.6em;
+    width: 100%;
+    border: none;
+    color: #858585;
+    border-bottom: 2px #2d6684 solid;
+}
+
+.box1_left textarea{
+    height: 6em;
+}
+
+.box1_left ul li p{
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #989898;
+    margin: 0.5em 0;
+}
+
+.box1_description{
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #989898;
+}
+
+#open_file{
+    padding: 0.6em 1em;
+    font-size: 1.4em;
+}
+
+
+.box1_left button{
+    padding: 0.5em 3em;
+    font-size: 2em;
+    font-weight: 300;
+    color: #fff;
+    background: #134374;
+    border:none;
+}
+
+.button_edit{
+    box-shadow: 0 2px 40px #545454;
+}
+
+.box1_left button:hover, .load:hover{
+    background: #989898;
+    color: #fff;
+}
+
+.box1_right{
+    padding: 0 1em;
+    width: 50%;
+    height: 40em;
+    float: right;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.box1_right img{
+    width: 50em;
+    box-shadow: 2px 4px 10px #000;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1024px){
+
+    .box1_left, .box1_right{
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    
+    .box1_left ul li{
+        text-align: center;
+        margin: 1em auto;
+    }
+    
+    .box1_right{
+        margin: 4em auto;
+        border-left: none;
+        border-top: 1px #ddd solid;
+    }
+    
+    .box1_right_item_left{
+        text-align: left;
+    }
+    
+    .box1_right_item_right{
+        border-left: 1px #ddd solid;
+    }
+    
+    .box1_right ul li{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .box1{
+        width: 95%;
+    }
+}

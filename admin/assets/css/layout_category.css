@@ -7,7 +7,7 @@
 }
 
 .box1 > h2{
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 300;
     color: #858585;
     width: 80%;
@@ -15,7 +15,7 @@
 }
 
 .box1_title{
-    font-size: 2.5em;
+    font-size: 2em;
     margin: 0.5em 0;
     color: #858585;
 }
@@ -50,6 +50,12 @@
     color: #989898;
 }
 
+#open_file{
+    background: #ddd;
+    padding: 0.6em 1em;
+    font-size: 1.4em;
+}
+
 .load{
     margin: 1em 0;
 }
@@ -75,16 +81,17 @@
     float: right;
 }
 
-.box1_right ul li{
+.box1_right_list > li{
     margin: 0.9em 0;
     padding: 0.6em 1em;
     background: #fff;
     color: #989898;
 }
 
-.box1_right ul li:hover{
+.box1_right_list > li:hover{
     background: #989898;
     color: #fff;
+    
 }
 
 .box1_right_item_left{
@@ -95,16 +102,22 @@
 .box1_right_item_right{
     float: right;
     width: 20%;
+}
+
+.box1_right_item_right i{
+    font-size: 2em;
+    margin: 0 0.5em;
+}
+
+
+.box1_right_item_left ul li{
+    display: inline;
     font-size: 2em;
     text-align: center;
 }
 
-.box1_right_item_left i{
-    font-size: 1.6em;
-}
-
 .box1_right_item_left span{
-    font-size: 1.9em;
+    font-size: 1.7em;
     font-weight: 300;
 }
 
@@ -135,13 +148,21 @@
         border-left: 1px #ddd solid;
     }
     
-    .box1_right ul li{
+    .box1_right_list li{
         width: 100%;
     }
 }
 
 @media screen and (max-width: 640px){
     .box1{
-        width: 95%;
+        width: 100%;
+    }
+
+    .box1_right_item_left{
+        width: 60%;
+    }
+
+    .box1_right_item_right{
+        width: 40%;
     }
 }
