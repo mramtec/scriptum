@@ -149,19 +149,22 @@ class ClassCategory extends ClassDataBase{
     }
     
     
-    public static function categoria_identificar_titulo($where){
-        
-            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
-            $category = ClassDataBase::prepare($sql);
-            $category->bindValue(':url', $where);
-            
-            if($category->execute()){
-                foreach($category->fetchAll() as $data){
-                    return $data->categoria_titulo;
-                }
-            }else{
-                return "Sem Categoria";
-            }
-        
-    }
+    
+    
+//    
+//    public static function categoria_identificar_titulo($where){
+//        
+//            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
+//            $category = ClassDataBase::prepare($sql);
+//            $category->bindValue(':url', $where);
+//            
+//            if($category->execute()){
+//                foreach($category->fetchAll() as $data){
+//                    return $data->categoria_titulo;
+//                }
+//            }else{
+//                return "Sem Categoria";
+//            }
+//        
+//    }
 }

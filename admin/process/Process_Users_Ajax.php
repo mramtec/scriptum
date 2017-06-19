@@ -148,21 +148,22 @@
     if(isset($user_alterar_privilegio)){
         
         $user = new ClassUsers();
-        $user->id = $user_alterar_privilegio;
+        $user->setID($user_alterar_privilegio);
         $data = $user->UserExibirSelecionado();
         
         $escolha = '';
 
         foreach ($data as $value);
+
         if($value->usuario_privilegio == 'administrador'){
-            $user->privilegio = 'convidado';
+            $user->setPrivilegio('convidado');
             $escolha = 'convidado';
         }else{
-            $user->privilegio = 'administrador';
+            $user->setPrivilegio(administrador);
             $escolha = 'administrador';
         }
 
-        if($user->users_alt_privileg())
+        if($user->UserAlternarPrivilegio())
             echo $escolha;
         else
             echo 'error';
@@ -172,22 +173,22 @@
     if(isset($user_acesso)){
         
         $user = new ClassUsers();
-        $user->id = $user_acesso;
-        $data = $user->users_exibir_selecionado();
+        $user->setID($user_acesso);
+        $data = $user->UserExibirSelecionado();
         
         $acesso = '';
         
         foreach($data as $value);
         
             if($value->usuario_acesso == 1){
-                $user->acesso = 0;
+                $user->setAcesso(0);
                 $acesso = 'lock';
             }else if($value->usuario_acesso == 0){
-                $user->acesso = 1;
+                $user->setAcesso(1);
                 $acesso = 'unlock';
             }
             
-            if($user->users_alt_acesso())
+            if($user->UserAlternarAcesso())
                 echo $acesso;
             else
                 echo 'error';

@@ -102,7 +102,7 @@
                         <li><input class="input nome" type="text" name="nome" placeholder="Nome" autocomplete="off"></li>
                         <li><input class="input apelido" type="text" name="apelido" placeholder="Apelido"></li>
                         <li><input class="input senha" type="password" name="senha" placeholder="Senha" autocomplete="off"></li>
-                        <li><input class="input" type="hidden" name="email" value="<?php echo base64_decode($Activation_Origem); ?>" style="background: lightgray;"></li>
+                        <li><input type="hidden" name="email" value="<?php echo base64_decode($Activation_Origem); ?>"></li>
                         <li>
                             <textarea class="input" name="descricao" placeholder="Deixe uma breve descrição sobre você!" maxlength="255" id="textarea"></textarea>
                             <br>

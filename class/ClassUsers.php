@@ -7,22 +7,22 @@ spl_autoload_register(function($class){
 
 class ClassUsers extends ClassDataBase {
     
-    public $id;
-    public $url;
-    public $nome;
-    public $apelido;
-    public $opcao_nome;     #Deprecated.
-    public $exibicao;
-    public $descricao;
-    public $descricao_bibliografica;
-    public $senha;
-    public $email;
-    public $privilegio;
-    public $acesso;
-    public $capa_arquivo;
-    public $perfil_arquivo;
-    public $data_convite;
-    
+//    public $id;
+//    public $url;
+//    public $nome;
+//    public $apelido;
+//    public $opcao_nome;     #Deprecated.
+//    public $exibicao;
+//    public $descricao;
+//    public $descricao_bibliografica;
+//    public $senha;
+//    public $email;
+//    public $privilegio;
+//    public $acesso;
+//    public $capa_arquivo;
+//    public $perfil_arquivo;
+//    public $data_convite;
+//    
     private $ID;
     private $URL;
     private $Nome;
@@ -221,6 +221,84 @@ class ClassUsers extends ClassDataBase {
             return $users->fetchAll();
     }
             
+
+    public function UserNovo(){
+        
+        $sql = "INSERT INTO usuarios "
+            . "(usuario_url, usuario_nome, usuario_apelido, usuario_senha, usuario_email, usuario_descricao, usuario_privilegio, usuario_acesso, usuario_cadastro) "
+            . "VALUES (:url, :nome, :apelido, :senha, :email, :descricao, :privilegio, :acesso, :cadastro)";
+        
+        $user = ClassDataBase::prepare($sql);
+        $user->bindValue(':url', ClassTools::forURL($this->Nome));
+        $user->bindValue(':nome', $this->Nome);
+        $user->bindValue(':apelido', $this->Apelido);
+        $user->bindValue(':senha', md5($this->Senha));
+        $user->bindValue(':email', $this->Email);
+        $user->bindValue(':descricao', $this->Descricao);
+        $user->bindValue(':privilegio', $this->Privilegio);
+        $user->bindValue(':acesso', $this->Acesso);
+        $user->bindValue(':cadastro', date('Y-m-d H:i:s'));
+
+        if($user->execute())
+            return true;
+        else
+            return false;
+    }
+    
+    
+    
+    public function UserAlternarPrivilegio(){
+        
+        $sql = "UPDATE usuarios SET usuario_privilegio = :privilegio WHERE id = :id";
+        $user = ClassDataBase::prepare($sql);
+        $user->bindValue(":privilegio", $this->Privilegio);
+        $user->bindValue(":id", $this->ID);
+        
+        if($user->execute())
+            return true;
+        else
+            return false;
+
+    }
+    
+    
+    
+    public function UserAlternarAcesso(){
+
+        $sql = "UPDATE usuarios SET usuario_acesso = :acesso WHERE id = :id";
+        $user = ClassDataBase::prepare($sql);
+        $user->bindValue(":acesso", $this->Acesso);
+        $user->bindValue(":id", $this->ID);
+
+        if($user->execute())
+            return true;
+        else
+            return false;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public function users_exibir_todos( $offset ){
         
@@ -269,31 +347,7 @@ class ClassUsers extends ClassDataBase {
         }
     }
     
-    
-    public function users_novo(){
-        
-        $sql = "INSERT INTO usuarios (usuario_url, usuario_nome, usuario_apelido, usuario_exibicao, usuario_senha, usuario_email, usuario_descricao, usuario_privilegio, usuario_acesso, usuario_cadastro) "
-             . "VALUES (:url, :nome, :apelido, :exibicao, :senha, :email, :descricao, :privilegio, :acesso, :cadastro)";
-        
-        $user = ClassDataBase::prepare($sql);
-        $user->bindValue(':url', ClassPost::post_url_edit($this->nome));
-        $user->bindValue(':nome', $this->nome);
-        $user->bindValue(':apelido', $this->apelido);
-        $user->bindValue(':exibicao', $this->nome);
-        $user->bindValue(':senha', md5($this->senha));
-        $user->bindValue(':email', $this->email);
-        $user->bindValue(':descricao', $this->descricao);
-        $user->bindValue(':privilegio', $this->privilegio);
-        $user->bindValue(':acesso', $this->acesso);
-        $user->bindValue(':cadastro', date('Y-m-d H:i:s'));
 
-        if($user->execute())
-            return true;
-        else
-            return false;
-    }
-    
-    
     public function users_excluir( $id ){
         $sql = "DELETE FROM usuarios WHERE id = $id";
         $user = ClassDataBase::prepare($sql);
@@ -303,18 +357,6 @@ class ClassUsers extends ClassDataBase {
             return false;
     }
     
-    
-    public function users_alt_privileg(){
-        $sql = "UPDATE usuarios SET usuario_privilegio = :privilegio WHERE id = :id";
-        $user = ClassDataBase::prepare($sql);
-        $user->bindValue(":privilegio", $this->privilegio);
-        $user->bindValue(":id", $this->id);
-        
-        if($user->execute())
-            return true;
-        else
-            return false;
-    }
     
     
     public function users_alt_apelido( $string ){
@@ -330,17 +372,7 @@ class ClassUsers extends ClassDataBase {
     }
     
     
-    public function users_alt_acesso(){
-        $sql = "UPDATE usuarios SET usuario_acesso = :acesso WHERE id = :id";
-        $user = ClassDataBase::prepare($sql);
-        $user->bindValue(":acesso", $this->acesso);
-        $user->bindValue(":id", $this->id);
-        
-        if($user->execute())
-            return true;
-        else
-            return false;
-    }
+
     
 
     

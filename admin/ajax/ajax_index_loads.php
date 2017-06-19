@@ -8,7 +8,8 @@
     if(isset($ajax_offset)){
         
         $post = new ClassPost();
-        $post_fetch = $post->post_todos($ajax_offset, 2, 8);
+        $post_fetch = $post->PostTodos($ajax_offset, 2, 8);
+        
         if($post_fetch == 0){
             echo 0;
         }else{

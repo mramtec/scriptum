@@ -276,32 +276,63 @@ class ClassPost extends ClassDataBase{
         else 
             return false;
 
-    }    
+    }
     
     
-    public function post_update_imagem(string $opcao, int $id){
-        if($opcao == "miniatura"){
-
-            $update = ClassDataBase::prepare("UPDATE posts SET post_miniatura = :miniatura WHERE id = :id");
-            $update->bindValue(":miniatura", "");
-
-        }else if($opcao == "capa"){
-
-            $update = ClassDataBase::prepare("UPDATE posts SET post_capa = :capa WHERE id = :id");
-            $update->bindValue(":capa", "");
-            
-        }else{
-            return false;
-        }
+    public function PostPorCategoria($Categoria, $Offset, $Limite){
         
-        $update->bindValue(":id", $id);
-
-        if($update->execute())
-            return true;
+        $SQL = "SELECT * FROM post WHERE post_categoria = :categoria LIMIT :offset, :limit";
+        $POST = ClassDataBase::prepare($SQL);
+        $POST->bindValue(':categoria', $Categoria);
+        $POST->bindValue(':offset', $Offset);
+        $POST->bindValue(':limit', $Limite);
+        
+        if($POST->execute())
+            return $POST->fetchAll();
         else
             return false;
-
+        
     }
+    
+    
+    public function PostBuscar( $Like ){
+
+        $sql = "SELECT * FROM posts WHERE post_titulo LIKE '%{$like}%' OR (post_tags LIKE '%{$like}%') ORDER BY post_data DESC LIMIT 4";
+        $POST = ClassDataBase::prepare($sql);
+        $POST->execute();
+        
+        if($POST->rowCount() == 0){
+            return false;
+        }else{
+            return $POST->fetchAll();
+        }
+    }
+    
+    
+//    
+//    public function post_update_imagem(string $opcao, int $id){
+//        if($opcao == "miniatura"){
+//
+//            $update = ClassDataBase::prepare("UPDATE posts SET post_miniatura = :miniatura WHERE id = :id");
+//            $update->bindValue(":miniatura", "");
+//
+//        }else if($opcao == "capa"){
+//
+//            $update = ClassDataBase::prepare("UPDATE posts SET post_capa = :capa WHERE id = :id");
+//            $update->bindValue(":capa", "");
+//            
+//        }else{
+//            return false;
+//        }
+//        
+//        $update->bindValue(":id", $id);
+//
+//        if($update->execute())
+//            return true;
+//        else
+//            return false;
+//
+//    }
 
     
     /* Remover na próxima versão */
@@ -322,83 +353,83 @@ class ClassPost extends ClassDataBase{
         return $clean;
     }
 
-
-    public function post_subs_rasc(int $id){
-        
-        $data = self::post_selecionado($id);
-        
-        if($data->status == 1)
-            $status = 0;
-        else
-            $status = 1;
-        
-        
-        $sql = "UPDATE posts SET post_status = :status WHERE id = :id";
-        $post = ClassDataBase::prepare($sql);
-        $post->bindValue(':status', $status);
-        $post->bindValue(':id', $id);
-        
-        if($post->execute())
-            return true;
-        else
-            return false;
-
-    }
-    
-    
-    public function post_todos( $offset, $status = 1, $limite = 4, $order_by = false, $random = false){
-        
-        if($status == 1){
-            $status_opt = "WHERE post_status = 1";
-        }elseif($status == 0){
-            $status_opt = "WHERE post_status = 0";
-        }elseif($status == 2)
-            $status_opt = "";
-        
-        if($order_by == true){
-            $order_by = "post_visualizacoes";
-        }else if($order_by == false && $random == false){
-            $order_by = "post_data";
-        }else if($order_by == false && $random == true){
-            $order_by = "RAND()";
-        }
-        $data_hoje = date('Y-m-d H:i:s');
-        
-        $sql = "SELECT * FROM posts $status_opt ORDER BY $order_by DESC LIMIT $offset, $limite";
-        $post = ClassDataBase::prepare($sql);
-        
-        if($post->execute()){
-            if($post->rowCount() == 0)
-                return false;
-            else
-                return $post->fetchAll();
-        }else{
-            return false;
-        }
-        
-    }
-    
-    
-    public function post_selecionado( $where = 'id' ){
-        
-        if($where == 'id'){
-
-            $post = ClassDataBase::prepare("SELECT * FROM posts WHERE id = :id");
-            $post->bindValue(':id', $this->id);
-
-        }else if($where == 'url'){
-
-            $post = ClassDataBase::prepare("SELECT * FROM posts WHERE post_url = :url");
-            $post->bindValue(':url', $this->url);
-
-        }
-
-        if($post->execute())
-            return $post->fetchAll();
-        else
-            return false;
-        
-    }
+//
+//    public function post_subs_rasc(int $id){
+//        
+//        $data = self::post_selecionado($id);
+//        
+//        if($data->status == 1)
+//            $status = 0;
+//        else
+//            $status = 1;
+//        
+//        
+//        $sql = "UPDATE posts SET post_status = :status WHERE id = :id";
+//        $post = ClassDataBase::prepare($sql);
+//        $post->bindValue(':status', $status);
+//        $post->bindValue(':id', $id);
+//        
+//        if($post->execute())
+//            return true;
+//        else
+//            return false;
+//
+//    }
+//    
+//    
+//    public function post_todos( $offset, $status = 1, $limite = 4, $order_by = false, $random = false){
+//        
+//        if($status == 1){
+//            $status_opt = "WHERE post_status = 1";
+//        }elseif($status == 0){
+//            $status_opt = "WHERE post_status = 0";
+//        }elseif($status == 2)
+//            $status_opt = "";
+//        
+//        if($order_by == true){
+//            $order_by = "post_visualizacoes";
+//        }else if($order_by == false && $random == false){
+//            $order_by = "post_data";
+//        }else if($order_by == false && $random == true){
+//            $order_by = "RAND()";
+//        }
+//        $data_hoje = date('Y-m-d H:i:s');
+//        
+//        $sql = "SELECT * FROM posts $status_opt ORDER BY $order_by DESC LIMIT $offset, $limite";
+//        $post = ClassDataBase::prepare($sql);
+//        
+//        if($post->execute()){
+//            if($post->rowCount() == 0)
+//                return false;
+//            else
+//                return $post->fetchAll();
+//        }else{
+//            return false;
+//        }
+//        
+//    }
+//    
+//    
+//    public function post_selecionado( $where = 'id' ){
+//        
+//        if($where == 'id'){
+//
+//            $post = ClassDataBase::prepare("SELECT * FROM posts WHERE id = :id");
+//            $post->bindValue(':id', $this->id);
+//
+//        }else if($where == 'url'){
+//
+//            $post = ClassDataBase::prepare("SELECT * FROM posts WHERE post_url = :url");
+//            $post->bindValue(':url', $this->url);
+//
+//        }
+//
+//        if($post->execute())
+//            return $post->fetchAll();
+//        else
+//            return false;
+//        
+//    }
     
     
     public function post_buscar( string $like ){
@@ -413,53 +444,53 @@ class ClassPost extends ClassDataBase{
         }
     }
     
-    
-    public static function post_publicar_agendamento(){
-        
-        $postFecth = ClassDataBase::prepare("SELECT id, post_agendamento_stats, post_agendamento FROM posts");
-        if($postFecth->execute()){
-            $data = $postFecth->fetchAll();
-            
-            foreach($data as $value){
-                
-                if($value->post_agendamento_stats == 1){
-                    if($value->post_agendamento <= date('Y-m-d H:i:s')){
-                        $update = ClassDataBase::prepare("UPDATE posts SET post_agendamento_stats = 0, post_agendamento = null WHERE id = $value->id");
-                        $update->execute();
-                    }
-                }
-            }
-            
-        }
-    }
-    
-    public function post_publicar_agora(){
-        
-        $sql = "UPDATE posts SET post_agendamento_stats = :agendamento_stats, post_agendamento = :agendamento WHERE id = :id";
-        $post = ClassDataBase::prepare($sql);
-        $post->bindValue(':agendamento_stats', $this->agendamento_stats);
-        $post->bindValue(':agendamento', $this->agendamento);
-        $post->bindValue(':id', $this->id);
-        
-        if($post->execute())
-            return true;
-        else
-            return false;
-
-    }
-    
-    
-    public function post_visualizacoes(){
-        
-        $post = ClassDataBase::prepare("UPDATE posts SET post_visualizacoes = :num WHERE id = :id");
-        $post->bindValue(':num', $this->visualizacoes);
-        $post->bindValue(':id', $this->id);
-        if($post->execute())
-            return true;
-        else 
-            return false;
-
-    }
+//    
+//    public static function post_publicar_agendamento(){
+//        
+//        $postFecth = ClassDataBase::prepare("SELECT id, post_agendamento_stats, post_agendamento FROM posts");
+//        if($postFecth->execute()){
+//            $data = $postFecth->fetchAll();
+//            
+//            foreach($data as $value){
+//                
+//                if($value->post_agendamento_stats == 1){
+//                    if($value->post_agendamento <= date('Y-m-d H:i:s')){
+//                        $update = ClassDataBase::prepare("UPDATE posts SET post_agendamento_stats = 0, post_agendamento = null WHERE id = $value->id");
+//                        $update->execute();
+//                    }
+//                }
+//            }
+//            
+//        }
+//    }
+////    
+//    public function post_publicar_agora(){
+//        
+//        $sql = "UPDATE posts SET post_agendamento_stats = :agendamento_stats, post_agendamento = :agendamento WHERE id = :id";
+//        $post = ClassDataBase::prepare($sql);
+//        $post->bindValue(':agendamento_stats', $this->agendamento_stats);
+//        $post->bindValue(':agendamento', $this->agendamento);
+//        $post->bindValue(':id', $this->id);
+//        
+//        if($post->execute())
+//            return true;
+//        else
+//            return false;
+//
+//    }
+//    
+//    
+//    public function post_visualizacoes(){
+//        
+//        $post = ClassDataBase::prepare("UPDATE posts SET post_visualizacoes = :num WHERE id = :id");
+//        $post->bindValue(':num', $this->visualizacoes);
+//        $post->bindValue(':id', $this->id);
+//        if($post->execute())
+//            return true;
+//        else 
+//            return false;
+//
+//    }
 /*    
     public function post_data(){
         //$inicio = "2017-05-15";

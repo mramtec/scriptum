@@ -52,8 +52,10 @@
             define("CAPA_ALTURA", '.$CapaH.');
             define("PERFIL_LARGURA", '.$PerfilW.');
             define("PERFIL_ALTURA", '.$PerfilH.');
+            
+            define("LOGO", "'.$Dominio.'/assets/img/logo_mail.png");
         ';
-    
+                //define("LOGO", "https://conhecaolugar.com.br/assets/img/logo_mail.png");
         file_put_contents('../class/defines.php', $SystemConfig);
 
         

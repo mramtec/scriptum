@@ -1,5 +1,9 @@
 <?php
 
+spl_autoload_register(function($class){
+   require_once $class.'.php'; 
+});
+
 
 class ClassTools {
 
@@ -18,6 +22,25 @@ class ClassTools {
 
         return $clean;
 
+    }
+    
+    
+        
+    public static function IdentificarCategoria( $URL ){
+        
+            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
+            $category = ClassDataBase::prepare( $sql );
+            $category->bindValue( ':url', $URL );
+            
+            if($category->execute()){
+
+                foreach($category->fetchAll() as $data)
+                    return $data->categoria_titulo;
+
+            }else{
+                return "Sem Categoria";
+            }
+        
     }
     
 }

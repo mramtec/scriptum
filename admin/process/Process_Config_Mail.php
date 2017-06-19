@@ -24,7 +24,7 @@
         $Email->setConfigUsername($Config_Mail_Username);
         $Email->setConfigPass($Config_Mail_Password);
         $Email->setConfigSecure($Config_Mail_SMTP_Secure);
-        $Email->setConfigAuth($Config_Mail_SMTP_Auth != 1 ?  0 :  1);
+        $Email->setConfigAuth($Config_Mail_SMTP_Auth);
         $Email->setConfigPort($Config_Mail_Port);
         $Email->setConfigOrige($Config_Mail_Origem);
         
