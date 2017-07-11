@@ -1,5 +1,6 @@
 <?php
 
+
 spl_autoload_register(function($class){
    require_once $class.'.php'; 
 });
@@ -7,33 +8,40 @@ spl_autoload_register(function($class){
 
 class ClassCategory extends ClassDataBase{
     
+    
     private $id;
     private $url;
     private $titulo;
     private $descricao;
     private $Imagem;
     
+    
     function setId($id) {
         $this->id = $id;
     }
 
+    
     function setUrl($url) {
         $this->url = $url;
     }
 
+    
     function setTitulo($titulo) {
         $this->titulo = $titulo;
     }
+    
 
     function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
 
+    
     function setImagem($Imagem) {
         $this->Imagem = $Imagem;
     }
    
 
+    
     public function CategoriaNova(){
 
         $sql = "INSERT INTO categoria (categoria_url, categoria_titulo, categoria_descricao, categoria_imagem) VALUES (:url, :titulo, :descricao, :imagem)";
@@ -50,6 +58,7 @@ class ClassCategory extends ClassDataBase{
             return false;
 
     }
+    
     
     
     public function CategoriaEditar(){
@@ -71,6 +80,7 @@ class ClassCategory extends ClassDataBase{
 
 
     }
+    
     
     
     public function CategoriaExcluir($ID = NULL){
@@ -102,6 +112,8 @@ class ClassCategory extends ClassDataBase{
 
     }
     
+    
+    
     public function category_todos($offset = null){
 
         $sql = '';
@@ -123,6 +135,8 @@ class ClassCategory extends ClassDataBase{
         }
     }
 
+    
+    
     public function CategoriaSelecionado( $where = 'id' ){
         
         $Categoria = NULL;
@@ -149,22 +163,37 @@ class ClassCategory extends ClassDataBase{
     }
     
     
+
+    public static function CategoriaPostSelecionada( $Categoria = NULL, $DESC_ASC = 'DESC', $OFFSet = 0, $Limit = 6 ){
+        
+        $SQL = "SELECT * FROM posts WHERE post_categoria = '$Categoria' ORDER BY post_data $DESC_ASC LIMIT $OFFSet, $Limit";
+        $CategoriaQuery = ClassDataBase::prepare($SQL);
+        if($CategoriaQuery->execute())
+            if($CategoriaQuery->rowCount() == 0)
+                return false;
+            else
+                return $CategoriaQuery->fetchAll();
+        else
+            return false;
+        
+    }
     
     
-//    
-//    public static function categoria_identificar_titulo($where){
-//        
-//            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
-//            $category = ClassDataBase::prepare($sql);
-//            $category->bindValue(':url', $where);
-//            
-//            if($category->execute()){
-//                foreach($category->fetchAll() as $data){
-//                    return $data->categoria_titulo;
-//                }
-//            }else{
-//                return "Sem Categoria";
-//            }
-//        
-//    }
+    public static function CategoriaIdentificar($where){
+        
+            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
+            $category = ClassDataBase::prepare($sql);
+            $category->bindValue(':url', $where);
+            
+            if($category->execute()){
+                foreach($category->fetchAll() as $data){
+                    return $data->categoria_titulo;
+                }
+            }else{
+                return "Sem Categoria";
+            }
+        
+    }
+    
+
 }

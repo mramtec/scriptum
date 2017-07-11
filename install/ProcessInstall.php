@@ -55,7 +55,7 @@
             
             define("LOGO", "'.$Dominio.'/assets/img/logo_mail.png");
         ';
-                //define("LOGO", "https://conhecaolugar.com.br/assets/img/logo_mail.png");
+
         file_put_contents('../class/defines.php', $SystemConfig);
 
         
@@ -81,16 +81,18 @@
                 Options -Indexes';
         
         file_put_contents('../.htaccess', $htAccess);
-
-        mkdir(0644, true, '../uploads/');
-        mkdir(0644, true, '../uploads/capas/');
-        mkdir(0644, true, '../uploads/capas_perfil/');
-        mkdir(0644, true, '../uploads/images/');
-        mkdir(0644, true, '../uploads/miniatura/');
-        mkdir(0644, true, '../uploads/perfil/');
-        mkdir(0644, true, '../uploads/slide/');
-        mkdir(0644, true, '../uploads/categoria/');
         
+        if(is_writable('../')){
+            mkdir( '../uploads/', 0644, true );
+            mkdir( '../uploads/capas/', 0644, true );
+            mkdir( '../uploads/capas_perfil/', 0644, true );
+            mkdir( '../uploads/images/', 0644, true );
+            mkdir( '../uploads/miniatura/', 0644, true );
+            mkdir( '../uploads/perfil/', 0644, true );
+            mkdir( '../uploads/slide/', 0644, true );
+            mkdir( '../uploads/categoria/', 0644, true );
+        }
+
         $Installation = new ClassDataAdmin();
         $Installation->setEmail($Email);
         $Installation->setName($Nome);

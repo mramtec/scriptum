@@ -97,7 +97,7 @@ class ClassPost extends ClassDataBase{
              . "VALUES (:url, :titulo, :subtitulo, :texto, :tags, :categoria, :status, :miniatura, :capa, :data, :agendamento_stats, :agendamento, :autor_id, :autor_nome)";
         
         $post = ClassDataBase::prepare($sql);
-        $post->bindValue(':url', self::post_url_edit($this->titulo));
+        $post->bindValue(':url', ClassTools::forURL($this->titulo));
         $post->bindValue(':titulo', $this->titulo);
         $post->bindValue(':subtitulo', $this->subtitulo);
         $post->bindValue(':texto', $this->texto);
@@ -205,6 +205,22 @@ class ClassPost extends ClassDataBase{
     }
     
     
+    public function PostMaisAcessadas($STATUS = 1, $OFFSet = 0, $Limite = 6){
+        
+        $SQL = "SELECT * FROM posts WHERE post_status = $STATUS ORDER BY post_visualizacoes LIMIT $OFFSet, $Limite";
+        $PostMaisAcessadas = ClassDataBase::prepare($SQL);
+        if($PostMaisAcessadas->execute()){
+            if($PostMaisAcessadas->rowCount() == 0)
+                return false;
+            else
+                return $PostMaisAcessadas->fetchAll();
+        }else {
+            return false;
+        }
+
+    }
+    
+    
     public function PostEditar(){
         
         $sql = "UPDATE posts SET "
@@ -222,7 +238,7 @@ class ClassPost extends ClassDataBase{
                 . " WHERE id = :id";
         
         $post = ClassDataBase::prepare($sql);
-        $post->bindValue(':url', self::post_url_edit($this->titulo));
+        $post->bindValue(':url', ClassTools::forURL($this->titulo));
         $post->bindValue(':titulo', $this->titulo);
         $post->bindValue(':subtitulo', $this->subtitulo);
         $post->bindValue(':texto', $this->texto);
@@ -308,50 +324,24 @@ class ClassPost extends ClassDataBase{
         }
     }
     
-    
-//    
-//    public function post_update_imagem(string $opcao, int $id){
-//        if($opcao == "miniatura"){
-//
-//            $update = ClassDataBase::prepare("UPDATE posts SET post_miniatura = :miniatura WHERE id = :id");
-//            $update->bindValue(":miniatura", "");
-//
-//        }else if($opcao == "capa"){
-//
-//            $update = ClassDataBase::prepare("UPDATE posts SET post_capa = :capa WHERE id = :id");
-//            $update->bindValue(":capa", "");
-//            
-//        }else{
-//            return false;
-//        }
-//        
-//        $update->bindValue(":id", $id);
-//
-//        if($update->execute())
-//            return true;
-//        else
-//            return false;
-//
-//    }
 
-    
     /* Remover na próxima versão */
-
-    public static function post_url_edit($str, $replace = array(), $delimiter="_"){
-        
-        setlocale(LC_ALL, 'en_US.UTF8');
-
-        if(!empty($replace)) {
-            $str = str_replace((array)$replace, ' ', $str);
-        }
-
-        $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
-        $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
-        $clean = strtolower(trim($clean, '-'));
-        $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
-
-        return $clean;
-    }
+//
+//    public static function post_url_edit($str, $replace = array(), $delimiter="_"){
+//        
+//        setlocale(LC_ALL, 'en_US.UTF8');
+//
+//        if(!empty($replace)) {
+//            $str = str_replace((array)$replace, ' ', $str);
+//        }
+//
+//        $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+//        $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+//        $clean = strtolower(trim($clean, '-'));
+//        $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+//
+//        return $clean;
+//    }
 
 //
 //    public function post_subs_rasc(int $id){

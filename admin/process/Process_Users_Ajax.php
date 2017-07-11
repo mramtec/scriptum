@@ -1,11 +1,13 @@
 <?php
 
-    include_once '../../access/access_requires.php';
-    
     spl_autoload_register(function($class){
-       require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/defines.php';
     });
+    
+    if(session_status() == 1 || session_status() == 0) session_start();
 
+    ClassAccess::access_prot_pag();
     ClassAccess::access_check_privileg();
 
     $user_offset                = filter_input(INPUT_POST, "offset", FILTER_SANITIZE_NUMBER_INT);
@@ -159,7 +161,7 @@
             $user->setPrivilegio('convidado');
             $escolha = 'convidado';
         }else{
-            $user->setPrivilegio(administrador);
+            $user->setPrivilegio('administrador');
             $escolha = 'administrador';
         }
 
@@ -197,17 +199,21 @@
     
 
     if(isset($user_convite)){
-        if(ClassForm::users_convite_busca($user_email, 1, false, false) == true){
+        
+        if(ClassInvite::InviteBusca($user_email, 1, false, false) == true){
             return header('Location: ../users.php?message=502');
         }else{
-            $user = new ClassForm();
-            $user->form_email = $user_email;
-            $user->form_privilegio = $user_privilegio;
-            if($user->users_novo())
+            
+            $user = new ClassInvite();
+            $user->setEmailCadastrado($user_email);
+            $user->setFormPrivilegio($user_privilegio);
+
+            if($user->InviteNovo())
                 return header('Location: ../users.php?message=501');
             else
                 return header('Location: ../users.php?message=503');
         }
+
     }
     
    

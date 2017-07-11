@@ -2,7 +2,7 @@
 
 include 'defines_database.php';
 
-class ClassDataBase{
+class ClassDataBase {
 
     private static $pdo;
 

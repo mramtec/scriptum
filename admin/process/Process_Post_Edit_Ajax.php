@@ -1,10 +1,12 @@
 <?php
-    
-    include_once '../../access/access_requires.php';
-    
+
     spl_autoload_register(function($class){
-       require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/defines.php';
     });
+    
+    if(session_status() == 1 || session_status() == 0) session_start();
+    ClassAccess::access_prot_pag();
     
 
     $ApagarMini     = filter_input(INPUT_POST, 'apagar_mini', FILTER_DEFAULT);

@@ -1,5 +1,3 @@
-<?php require_once '../access/access_requires.php'; ?>
-
 
 <div class="sidebar">
     <aside>

@@ -1,11 +1,15 @@
 <?php
 
-    include_once '../../access/access_requires.php';
-    #require_once '../../class/ClassUsers.php';
-    #require_once '../../class/ClassArchives.php';
+
     spl_autoload_register(function($class){
-       require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/defines.php';
     });
+    
+    if(session_status() == 1 || session_status() == 0) session_start();
+    ClassAccess::access_prot_pag();
+    
+    
 
     $user_remove_profile = filter_input(INPUT_POST, "remove_profile", FILTER_DEFAULT);
     $user_remove_capa = filter_input(INPUT_POST, "remove_capa", FILTER_DEFAULT);

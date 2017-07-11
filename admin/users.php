@@ -1,11 +1,13 @@
 <?php
 
-    include_once '../access/access_requires.php';
 
     spl_autoload_register(function($class){
-       require_once '../class/'.$class.'.php'; 
+        require_once '../class/'.$class.'.php'; 
+        require_once '../class/defines.php';
     });
     
+    if(session_status() == 1 || session_status() == 0) session_start();
+    ClassAccess::access_prot_pag();
     ClassAccess::access_check_privileg();
 ?>
 
@@ -27,7 +29,7 @@
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
-        <script type="text/javascript" src="js/users.js"></script>
+        <script src="assets/js/layout.js" type="text/javascript"></script>
         <script type="text/javascript" src="assets/js/sidebar.js"></script>
         <script src="assets/js/users.js" type="text/javascript"></script>
     <head>

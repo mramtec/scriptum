@@ -88,8 +88,8 @@ class ClassConfig extends ClassDataBase{
         if($check->execute()){
             if($check->rowCount() == 0){
                 
-                $sql = "INSERT INTO config_email (config_mail_host,"
-                        . " config_mail_smtp_auth, "
+                $sql = "INSERT INTO config_email (config_mail_host, "
+                        . "config_mail_smtp_auth, "
                         . "config_mail_username, "
                         . "config_mail_password, "
                         . "config_mail_smtp_secure, "

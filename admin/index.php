@@ -1,5 +1,13 @@
 <?php
-    require_once '../access/access_requires.php';
+
+    spl_autoload_register(function($class){
+        require_once '../class/'.$class.'.php'; 
+        require_once '../class/defines.php';
+    });
+    
+    if(session_status() == 1 || session_status() == 0) session_start();
+    ClassAccess::access_prot_pag();
+    
 ?>
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -25,7 +33,7 @@
     <body>
         <?php include('assets/sidebar.php'); ?>
 
-        <div class="content_section_title" style="background: url(<?php if(strlen($_SESSION['usuarioCapa']) != 0){ echo '../'.$_SESSION['usuarioCapa']; }else{ echo 'assets/img/inicio.jpg'; } ?>) scroll center center no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;">
+        <div class="content_section_title" style="background: url(assets/img/inicio.jpg) scroll center center no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;">
             <div class="content_section_title_inner">
                 <h1>Bem vindo <?php echo $_SESSION['usuarioNome']; ?></h1>
             </div>

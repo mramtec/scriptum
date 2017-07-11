@@ -1,13 +1,14 @@
 <?php
     
     require_once '../../class/defines.php';
-    
+
     spl_autoload_register(function($class){
-       require_once '../../class/'.$class.'.php'; 
+       require_once '../../class/'.$class.'.php';
     });
+
     
-    $ConfigUser = filter_input(INPUT_POST, 'next_step', FILTER_DEFAULT);
     
+    $ConfigUser         = filter_input(INPUT_POST, 'next_step', FILTER_DEFAULT);
     $Config_User_Name   = filter_input(INPUT_POST, 'nome', FILTER_DEFAULT);
     $Config_User_Nick   = filter_input(INPUT_POST, 'apelido', FILTER_DEFAULT);
     $Config_User_Pass   = filter_input(INPUT_POST, 'senha', FILTER_DEFAULT);
@@ -16,15 +17,14 @@
 
 
     if(isset($ConfigUser)){
-        
-        $FORM = new ClassForm();
-        $FORM->setEmailCadastro($ConfigUserMail);
 
-        if($FORM->UserConviteBusca($ConfigUserMail, 1, true, false) == false)
-                 header('Location: '.SITE);//echo 'Não existe o convite'; // Adicionar um HEADER
+        $FORM = new ClassInvite();
+        $FORM->setEmailCadastrado($ConfigUserMail);
+        foreach( $FORM->InviteBusca($ConfigUserMail, 1, true, false) as $value );
+        
+        if($FORM->InviteBusca($ConfigUserMail, 1, true, false) === false)
+            header('Location: '.SITE);
         else{
-            
-            foreach( $FORM->UserConviteBusca($ConfigUserMail, 1, true, false) as $value );
 
             $USER = new ClassUsers();
             $USER->setNome($Config_User_Name);
@@ -37,7 +37,7 @@
 
             if($USER->UserNovo()){
 
-                if($FORM->isUserConviteDelete())
+                if($FORM->isInviteDelete())
                     return header('Location: '.SITE.'/access/access_verify_data.php?new_user_login='.base64_encode($ConfigUserMail).'&new_user_pass='.base64_encode($Config_User_Pass));
                 else
                     return header('Location: '.SITE.'/login?condition=not_exist&access=error_on_delete_invitation');
@@ -46,5 +46,5 @@
                 header('Location: '.SITE);
 
         }
-        
+
     }

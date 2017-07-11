@@ -1,6 +1,10 @@
 <?php
 
-    require_once '../../access/access_requires.php';
+    require_once '../../class/defines.php';
+    
+    spl_autoload_register(function($class){
+        require_once '../../class/'.$class.'.php';    
+    });
 
     $ajax_offset = filter_input(INPUT_POST, 'offset', FILTER_SANITIZE_NUMBER_INT);
     $ajax_last_access = filter_input(INPUT_POST, 'last_access', FILTER_DEFAULT);

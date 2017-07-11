@@ -8,7 +8,7 @@ html, body, input, textarea, button{
 header{
     width: 100%;
     padding: 8em 0;
-    background: url(../../admin/img/index_header.jpg) scroll center center no-repeat;
+    background: url(../../admin/assets/img/scriptum.jpg) scroll center center no-repeat;
     background-size: cover;
 }
 
@@ -61,12 +61,24 @@ header h1{
 }
 
 .box2 ul li{
-    margin: 0.5em 0;
+    margin: 0.8em 0;
+}
+
+.passwords{
+    width: 60%;
+    margin: 4em auto;
+    padding: 3em 2em 4em 2em;
+    border: 1px #ddd solid;
+}
+
+.passwords input{
+    text-align: center;
 }
 
 .input{
     width: 100%;
-    border: 1px #ddd solid;
+    border: none;
+    border-bottom: 2px #2d6684 solid;
     color: #868686;
     background: none;
     padding: 0.3em 0.5em;

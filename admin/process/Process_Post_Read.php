@@ -1,10 +1,13 @@
 <?php
-    
-    include_once '../../access/access_requires.php';
 
     spl_autoload_register(function($class){
-       require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/'.$class.'.php'; 
+        require_once '../../class/defines.php';
     });
+    
+    if(session_status() == 1 || session_status() == 0) session_start();
+    ClassAccess::access_prot_pag();
+
 
     $post_ler = filter_input(INPUT_POST, "offset", FILTER_SANITIZE_SPECIAL_CHARS);
     $post_buscar = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -21,7 +24,7 @@
     if(isset($post_ler)){
         
         $read = new ClassPost();        
-        $data = $read->post_todos($post_ler, 2);
+        $data = $read->PostTodos($post_ler, 2);
         
         if($data != false){
             foreach ( $data as $conteudo ) {

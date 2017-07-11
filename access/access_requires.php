@@ -2,23 +2,25 @@
   
     $defines = 'class/defines.php';
 
-    if(is_file('../'.$defines)){
-        require_once '../'.$defines;
+    if(is_file($defines)){
+        return require_once $defines;
+    }else if(is_file('../'.$defines)){
+        return require_once '../'.$defines;
     }else if(is_file('../../'.$defines)){
-        require_once '../../'.$defines;
+        return require_once '../../'.$defines;
     }else if(is_file('../../../'.$defines)){
-        require_once '../../../'.$defines;
+        return require_once '../../../'.$defines;
     }
     
     spl_autoload_register(function($class){
         if(is_file('../class/'.$class.'.php')){
-            require_once '../class/'.$class.'.php';
+            return require_once '../class/'.$class.'.php';
         }
         if(is_file('../../class/'.$class.'.php')){
-            require_once '../../class/'.$class.'.php';
+            return require_once '../../class/'.$class.'.php';
         }
         if(is_file('../../../class/'.$class.'.php')){
-            require_once '../../../class/'.$class.'.php';
+            return require_once '../../../class/'.$class.'.php';
         }
     });
 
