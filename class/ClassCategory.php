@@ -7,7 +7,7 @@ spl_autoload_register(function($class){
 
 
 class ClassCategory extends ClassDataBase{
-    
+   
     
     private $id;
     private $url;
@@ -29,8 +29,8 @@ class ClassCategory extends ClassDataBase{
     function setTitulo($titulo) {
         $this->titulo = $titulo;
     }
-    
 
+    
     function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
@@ -83,33 +83,41 @@ class ClassCategory extends ClassDataBase{
     
     
     
-    public function CategoriaExcluir($ID = NULL){
+    public function CategoriaExcluir( $ID ){
         
-        $data = self::CategoriaSelecionado($ID);
-        $this->id = $ID;
-        foreach($data as $value);
-
-        $post = ClassDataBase::prepare("UPDATE posts SET post_categoria = NULL WHERE post_categoria = :url");
-        $post->bindValue(':url', $value->categoria_url);
-
-        $Arquivo = new ClassArchives();
-        $Arquivo->setArquivoPath('../../'.$value->categoria_imagem);
-        $Arquivo->getExcluirArquivo();
+        $data = self::CategoriaSelecionado('id', $ID);
         
-        if($post->execute()){
+        if(!$data){
+            return false;
+        }else{
+
+            foreach($data as $value);
+
+            $post = ClassDataBase::prepare("UPDATE posts SET post_categoria = NULL WHERE post_categoria = :url");
+            $post->bindValue(':url', $value->categoria_url);                /* Prepara para remover postagens relacionados a categoria */
+
             
-            $sql = "DELETE FROM categoria WHERE id = :id";
-            $category = ClassDataBase::prepare($sql);
-            $category->bindValue(':id', $this->id);
-            if($category->execute()){
-                return true;    
+            $Arquivo = new ClassArchives();                                 /* Exclusão de arquivo de capa relacionado a categoria. */
+            $Arquivo->setArquivoPath('../../'.$value->categoria_imagem);
+            $Arquivo->getExcluirArquivo();
+        
+            
+            if($post->execute()){
+            
+                $sql = "DELETE FROM categoria WHERE id = :id";
+                $category = ClassDataBase::prepare($sql);
+                $category->bindValue(':id', $ID);
+
+                if($category->execute()){
+                    return true;
+                }else
+                    return false;
+
             }else
                 return false;
 
-        }else{
-            return false;
         }
-
+        
     }
     
     
@@ -137,21 +145,21 @@ class ClassCategory extends ClassDataBase{
 
     
     
-    public function CategoriaSelecionado( $where = 'id' ){
+    public function CategoriaSelecionado( $where = 'id', $ID = NULL, $URL = NULL ){
         
         $Categoria = NULL;
         
-        if($where == 'id'){
+        if($where ==='id'){
             
-            $sql = "SELECT * FROM categoria WHERE id = :id";
+            $sql = "SELECT * FROM categoria WHERE id = :id LIMIT 1";
             $Categoria = ClassDataBase::prepare($sql);
-            $Categoria->bindValue(':id', $this->id);
+            $Categoria->bindValue(':id', $ID);
             
-        }else if($where == 'url'){
+        }else if($where === 'url'){
 
-            $sql = "SELECT * FROM categoria WHERE categoria_url = :url";
+            $sql = "SELECT * FROM categoria WHERE categoria_url = :url LIMIT 1";
             $Categoria = ClassDataBase::prepare($sql);
-            $Categoria->bindValue(':url', $this->url);
+            $Categoria->bindValue(':url', $URL);
 
         }
 
@@ -163,7 +171,7 @@ class ClassCategory extends ClassDataBase{
     }
     
     
-
+    
     public static function CategoriaPostSelecionada( $Categoria = NULL, $DESC_ASC = 'DESC', $OFFSet = 0, $Limit = 6 ){
         
         $SQL = "SELECT * FROM posts WHERE post_categoria = '$Categoria' ORDER BY post_data $DESC_ASC LIMIT $OFFSet, $Limit";
@@ -177,6 +185,7 @@ class ClassCategory extends ClassDataBase{
             return false;
         
     }
+
     
     
     public static function CategoriaIdentificar($where){
@@ -194,6 +203,5 @@ class ClassCategory extends ClassDataBase{
             }
         
     }
-    
 
 }
