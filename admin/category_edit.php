@@ -13,8 +13,7 @@
     $GET = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     
     $Categoria = new ClassCategory();
-    $Categoria->setId($GET);
-    foreach($Categoria->CategoriaSelecionado('id') as $DATA);
+    foreach($Categoria->CategoriaSelecionado('id', $GET) as $DATA);
 
 ?>
 
