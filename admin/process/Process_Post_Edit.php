@@ -66,7 +66,7 @@
 
             $FileCapa = new ClassArchives();
             $FileCapa->setArquivo($_FILES['capa']);
-            $FileCapa->setLocal('uploads/capa/');
+            $FileCapa->setLocal('uploads/capas/');
 
             if($FileCapa->getValidaoArquivo('capa') === true)
                 $Editar->setImagemCapa($FileCapa->getNovoArquivo());
