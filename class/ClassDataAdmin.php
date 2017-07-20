@@ -204,7 +204,7 @@ class ClassDataAdmin extends ClassDataBase{
                             convite_codigo VARCHAR(255) NOT NULL,
                             convite_data DATETIME NOT NULL,
                             PRIMARY KEY (id)
-                        )";
+                        )ENGINE = InnoDB";
 
         $ConvitesQuery = ClassDataBAse::prepare($ConviteSQL);
         $ConvitesQuery->execute();
@@ -223,30 +223,6 @@ class ClassDataAdmin extends ClassDataBase{
 
         $SlideQuery = ClassDataBase::prepare($SlideSQL);
         $SlideQuery->execute();
-        
-        
-//
-//
-//        
-//        $FK_Usuarios_and_Posts = "CREATE TABLE IF NOT EXISTS `usuarios_has_posts` (
-//                                `usuarios_id` INT NOT NULL,
-//                                `posts_id` INT NOT NULL,
-//                                PRIMARY KEY (`usuarios_id`, `posts_id`),
-//                                INDEX `fk_usuarios_has_posts_posts1_idx` (`posts_id` ASC),
-//                                INDEX `fk_usuarios_has_posts_usuarios1_idx` (`usuarios_id` ASC),
-//                                CONSTRAINT `fk_usuarios_has_posts_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-//                                  ON DELETE NO ACTION
-//                                  ON UPDATE NO ACTION,
-//                                CONSTRAINT `fk_usuarios_has_posts_posts1` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`)
-//                                  ON DELETE NO ACTION
-//                                  ON UPDATE NO ACTION)
-//                              ENGINE = InnoDB";
-//
-//        $FK_Usuarios_and_PostsQuery = ClassDataBase::prepare($FK_Usuarios_and_Posts);
-//        $FK_Usuarios_and_PostsQuery->execute();
-
-        /* Fim da execução dos scripts SQL */
-
         
 
         $InsertUser = ClassDataBase::prepare ("INSERT INTO usuarios "

@@ -207,7 +207,7 @@ class ClassPost extends ClassDataBase{
     
     public function PostMaisAcessadas($STATUS = 1, $OFFSet = 0, $Limite = 6){
         
-        $SQL = "SELECT * FROM posts WHERE post_status = $STATUS ORDER BY post_visualizacoes LIMIT $OFFSet, $Limite";
+        $SQL = "SELECT * FROM posts WHERE post_status = $STATUS ORDER BY post_visualizacoes DESC LIMIT $OFFSet, $Limite";
         $PostMaisAcessadas = ClassDataBase::prepare($SQL);
         if($PostMaisAcessadas->execute()){
             if($PostMaisAcessadas->rowCount() == 0)
@@ -296,16 +296,17 @@ class ClassPost extends ClassDataBase{
     
     
     public function PostPorCategoria($Categoria, $Offset, $Limite){
-        
-        $SQL = "SELECT * FROM post WHERE post_categoria = :categoria LIMIT :offset, :limit";
+
+        $SQL = "SELECT * FROM posts WHERE post_categoria = :categoria AND post_status = 1 LIMIT $Offset, $Limite";
         $POST = ClassDataBase::prepare($SQL);
         $POST->bindValue(':categoria', $Categoria);
-        $POST->bindValue(':offset', $Offset);
-        $POST->bindValue(':limit', $Limite);
-        
-        if($POST->execute())
-            return $POST->fetchAll();
-        else
+
+        if($POST->execute()){
+            if($POST->rowCount() == 0)
+                return false;
+            else
+                return $POST->fetchAll();
+        }else
             return false;
         
     }

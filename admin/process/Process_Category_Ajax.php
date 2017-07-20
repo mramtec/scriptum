@@ -41,8 +41,7 @@
     if(isset($CategoriaDelete)){
         
         $Categoria = new ClassCategory();
-        $Categoria->setId($CategoriaDelete);
-        if($Categoria->CategoriaExcluir('id'))
+        if($Categoria->CategoriaExcluir($CategoriaDelete))
             echo 1;
         else
             echo 0;
